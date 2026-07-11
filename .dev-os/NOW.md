@@ -4,36 +4,28 @@
 
 ---
 
-## 當前任務
+## 當前狀態：S9 — M1 已完成，等待使用者選擇下一個模組
 
-**ID**：M1-editorial-redesign
-**名稱**：Editorial 視覺與資訊架構改版
-**Phase**：Phase 1 — Editorial 改版
-**SPEC 路徑**：`.dev-os/specs/M1-editorial-redesign/MINI_SPEC.md`（Lite 模式，單檔）
+M1-editorial-redesign 已於 2026-07-12 完成並通過驗收（證據見 `specs/M1-editorial-redesign/MINI_SPEC.md`）。
 
-**為什麼是這一個**：
-- 使用者看過初版粉嫩風後明確要求改為高級感 editorial（拷問已定案，見 ADR-004／ADR-005）
-- 視覺是廠商第一印象，擋在發布（M2）前面
-- 照片資產與資料檔可沿用，改版範圍侷限在前端層
+依 v0.5.2 規則，S9 且未指定下一模組時**不可自動選**。請使用者從以下選項明說：
 
----
+### 選項 A：M2-deploy-pages — 發布上線
+把網站推上 GitHub（建 repo `joohnny3/hsuan-resume` → push → 開 Pages）。
+**Gate（ADR-002）：需使用者明說「發布」或「push」**。約 5 分鐘上線。
 
-## 開工前確認清單
+### 選項 B：M3-content-refresh — 先補內容再發布
+提供素材即可動工：
+- [ ] IG 帳號（填 `src/data/profile.ts` 的 `instagram`）
+- [ ] 2023 後新經歷（活動／品牌名即可，無需日期——併入品牌字牆）
+- [ ] 決定「競選總會PG」照片是否加回照片牆（預設不放）
 
-- [x] 讀過 `.dev-os/DECISIONS.md`（ADR-001〜006）
-- [x] SPEC 已寫好並經使用者逐題確認（拷問流程即對齊）
-- [x] 風險檢查通過（無 schema／權限／金流）
-
----
-
-## 平行進行的工作（等使用者提供，不擋 M1）
-
-- [ ] IG 帳號（給了就填 `src/data/profile.ts` 的 `instagram`）
-- [ ] 2023 後新經歷清單（活動名即可，無需日期——品牌字牆用）
-- [ ] 決定「競選總會PG」照片是否要加回照片牆（預設不放）
+### 選項 C：M1 視覺微調
+看過本機預覽（`npm run dev` → http://localhost:3000/hsuan-resume）後想調整任何細節。
 
 ---
 
-## M1 完成後
+## 開工前確認清單（下個模組適用）
 
-M2-deploy-pages 需要**使用者明說「發布／push」**才啟動（ADR-002）。
+- [ ] 讀過 `.dev-os/DECISIONS.md`（ADR-001〜006）
+- [ ] M2 屬發布行為，執行前再次確認使用者同意

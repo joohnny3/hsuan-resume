@@ -53,7 +53,7 @@ Lite 合規：範圍小 ✅、一天內 ✅、可回滾（git）✅
 | Criterion | 測試方式 | 預期結果 | 證據 |
 |-----------|----------|----------|------|
 | 建置通過 | `npm run build` | exit 0、靜態輸出 out/ | 終端輸出 |
-| 隱私 grep | grep `0918`／`瑋` 於 src、out、docs、.dev-os | 0 結果 | 終端輸出 |
+| 隱私 grep | 手機號碼字串（以 `originals/` 內 PDF 記載為準，**數字不得寫進任何 repo 檔案，包括本表**）grep 全 repo；錯字「瑋」grep 網站呈現面（src、public、out） | 兩者皆 0 結果 | 終端輸出 |
 | 日夜切換 | 瀏覽器點擊切換鈕 | `data-theme` 切換、重整後記住 | DOM 檢測 |
 | 照片牆統一 | 檢查卡片 aspect-ratio | 全部 3:4、無瀑布流高低差 | DOM 檢測 |
 | 燈箱原圖 | 點卡片開燈箱 | 顯示未裁切原圖＋說明 | DOM 檢測 |
@@ -63,7 +63,21 @@ Lite 合規：範圍小 ✅、一天內 ✅、可回滾（git）✅
 
 ## 完成紀錄
 
-- **完成日期**：（進行中）
-- **主要 commit**：（待補）
-- **是否需要回填 ROADMAP**：是
-- **是否產生後續工作**：M2 發布待使用者同意；M3 內容補全待素材
+- **完成日期**：2026-07-12
+- **主要 commit**：step 1 `075217d`（root 化＋dev-os）、step 2（editorial 重寫）、step 3（驗證＋狀態同步）——hash 見 git log
+- **是否需要回填 ROADMAP**：是（已回填 ✅）
+- **是否產生後續工作**：M2 發布待使用者明說；M3 內容補全待素材（IG／新經歷／競選照決定）
+
+### 驗收證據（2026-07-12）
+
+| Criterion | 結果 |
+|-----------|------|
+| 建置通過 | ✅ `npm run build` exit 0，out/ 靜態輸出四路由 |
+| 隱私 grep | ✅ 手機號碼字串全 repo 0 筆（含前綴檢查）；「瑋」src／public／out 0 筆；`git ls-files` 無 originals／PDF／原圖 |
+| 日夜切換 | ✅ 切換鈕使 `--canvas/--ink/--gold` 三 token 正確翻轉（#0e0d0b↔#f6f3ec 等），localStorage 記憶，預設深色 |
+| 照片牆統一 | ✅ 37 張卡片實測比例全部 0.75（3:4），無瀑布流高低差 |
+| 燈箱原圖 | ✅ 點卡開燈箱（原始寬高未裁切）、說明＋計數、Esc／背景關閉 |
+| 品牌字牆 | ✅ 26 個品牌名、無日期（`20\d\d` 0 筆）、About／Experience 區塊已移除 |
+| 其他 | ✅ 無橫向溢出、LINE 連結×3、Playfair Display 生效於 h1、IG 未填不顯示 |
+
+註：本機預覽面板截圖管線故障（compositor 凍結），視覺驗證以 DOM／computed style 為證據；實機瀏覽器不受影響。

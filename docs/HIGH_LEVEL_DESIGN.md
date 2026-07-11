@@ -38,7 +38,7 @@
 
 ## 隱私邊界（ADR-001）
 
-`originals/`（原始 PDF＋手機圖）永不進 git；聯絡資訊只有 LINE ID；驗收含 `0918`／`瑋` grep。
+`originals/`（原始 PDF＋手機圖）永不進 git；聯絡資訊只有 LINE ID；驗收含完整電話字串（全 repo）與錯字「瑋」（src／public／out）的 grep 檢查。
 
 ## 部署與網址
 

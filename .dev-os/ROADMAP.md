@@ -40,7 +40,7 @@
 
 | ID | 模組 | 種類 | 狀態 | 依賴 | 備註 |
 |----|------|------|------|------|------|
-| M1-editorial-redesign | Editorial 視覺與資訊架構改版 | implementation | 🔨 | M0.1 | 規格＝`.dev-os/specs/M1-editorial-redesign/MINI_SPEC.md`（拷問定案） |
+| M1-editorial-redesign | Editorial 視覺與資訊架構改版 | implementation | ✅ | M0.1 | 2026-07-12 完成，驗收證據見 MINI_SPEC |
 | M2-deploy-pages | 建 GitHub repo、push、開 Pages | implementation | ⬜ | M1、**使用者明確同意發布** | 絕不自動 push（ADR-002） |
 
 ---
@@ -59,5 +59,5 @@
 ## 完成度統計
 
 - Phase 0：1 / 1（100%）
-- Phase 1：0 / 2（0%，M1 進行中）
+- Phase 1：1 / 2（50%，M2 等使用者同意發布）
 - Phase 2：0 / 2（0%）

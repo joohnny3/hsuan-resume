@@ -7,28 +7,28 @@ vision:
   total_stages: 3
 module: "M1-editorial-redesign"
 module_name: "Editorial 視覺與資訊架構改版"
-workflow_state: "S4"
-workflow_state_name: "aligned and in progress"
+workflow_state: "S9"
+workflow_state_name: "module fully complete, waiting for next module"
 branch: "main"
 last_update: "2026-07-12"
 conversation:
   date: "2026-07-12"
   thread_n: 1
-  messages_estimate: 30
+  messages_estimate: 45
   health_verdict: "Healthy"
 current_step:
-  n: 2
-  title: "Editorial 視覺重寫（主題 token／字型／元件）"
+  n: 3
+  title: "驗證＋狀態同步（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 1
-  title: "root 化重構＋dev-os 實例化"
-  commit: "(pending 初始 commit)"
+  n: 2
+  title: "深色奢華 Editorial 重寫"
+  commit: "見 git log（step 2 commit）"
   completed_at: "2026-07-12"
 next_step:
-  n: 3
-  title: "建置驗證（build＋隱私 grep＋瀏覽器 DOM 驗證）"
+  n: 4
+  title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / M1 微調"
   location: "same conversation"
 blockers: []
 ---
@@ -38,26 +38,20 @@ blockers: []
 ## 當前狀態
 
 - **Phase**: Phase 1 — Editorial 改版
-- **Wave**: Wave 1
-- **Module**: M1-editorial-redesign — Editorial 視覺與資訊架構改版
-- **Workflow State**: S4 — aligned and in progress（拷問＝pre-implementation alignment，已完成）
+- **Module**: M1-editorial-redesign — **已完成（S9）**
 - **Branch**: main
-- **Conversation**: 2026-07-12 thread #1 (Healthy)
 - **Last update**: 2026-07-12
 
 ## 當前 Step
 
-- **#2**: Editorial 視覺重寫（主題 token／字型／Hero／品牌字牆／Gallery 3:4／Contact／OG）
-- **執行位置**: same conversation
+- **#3**: 驗證＋狀態同步 — 完成。M1 全部驗收通過（證據在 MINI_SPEC）。
 
-## 上一個 Step
+## 下一個 Step
 
-- **#1**: root 化重構（site/* 提升、originals/ 隔離、fresh git init）＋ dev-os 實例化（lite）
-- **Commit**: pending（初始 commit 待本 step 一併）
-
-## 下一個 Step（預測）
-
-- **#3**: 建置驗證：`npm run build`＋隱私 grep＋瀏覽器 DOM 驗證（日夜切換／3:4 網格／燈箱）
+- **#4**: 等使用者選擇（S9 不可自動選）：
+  - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
+  - **B. M3 補內容**（IG／新經歷／競選照決定）
+  - **C. M1 視覺微調**（先看本機預覽）
 
 ## Blockers
 
@@ -65,9 +59,10 @@ blockers: []
 
 ## Module Progress
 
-- M1-editorial-redesign: 1 / 估 3 steps
-- Acceptance: pending（見 MINI_SPEC 驗收表）
+- M1-editorial-redesign: 3 / 3 steps ✅
+- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆）
 
 ## Recent commits（本模組）
 
-- (fresh repo，初始 commit 待打)
+- 075217d — step 1: root 化重構與 dev-os lite 實例化
+- (step 2/3 commits 見 git log)
