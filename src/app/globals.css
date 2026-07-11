@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  /* 粉嫩甜美但乾淨的色票 */
+  --color-blush-50: #fffafb;
+  --color-blush-100: #fff3f5;
+  --color-blush-200: #ffe6eb;
+  --color-blush-300: #ffd4dd;
+  --color-rose-300: #f7a8b8;
+  --color-rose-400: #f28ca2;
+  --color-rose-500: #ec6f8e;
+  --color-rose-600: #d95579;
+  --color-cocoa-500: #a08289;
+  --color-cocoa-600: #8c6e76;
+  --color-cocoa-800: #5c464d;
+  --color-cocoa-900: #43333a;
+  --color-line-green: #06c755;
+
+  --font-sans: var(--font-noto), "PingFang TC", "Microsoft JhengHei",
+    ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-quicksand), var(--font-noto), ui-sans-serif,
+    system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-blush-50);
+  color: var(--color-cocoa-900);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-rose-300);
+  color: #fff;
+}

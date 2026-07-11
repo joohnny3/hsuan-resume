@@ -1,0 +1,55 @@
+# dev-os project configuration
+#
+# Fill this file during project bootstrap. Prompts and local helper scripts should
+# read this file before guessing commands, git behavior, or workflow strictness.
+
+version: 1
+
+project:
+  name: "hsuan-resume"
+  workflow_mode: "lite" # lite | standard | strict
+  conversation_layout: "ide-only" # ide-only | split
+  current_phase: "Phase 1 — Editorial 改版"
+  current_wave: "Wave 1"
+
+paths:
+  roadmap: ".dev-os/ROADMAP.md"
+  now: ".dev-os/NOW.md"
+  decisions: ".dev-os/DECISIONS.md"
+  phase_plan: ".dev-os/PHASE_PLAN.md"
+  specs_dir: ".dev-os/specs"
+  high_level_design: "docs/HIGH_LEVEL_DESIGN.md"
+  module_path: "docs/MODULE_PATH.md"
+
+commands:
+  install: "npm install"
+  typecheck: "npx tsc --noEmit"
+  lint: "npm run lint"
+  test: "echo 'no test suite (static portfolio site)'"
+  build: "npm run build"
+  e2e: ""
+
+git:
+  # main-direct: default for solo / non-engineer users. Commit on main and push main after a module is safely closed.
+  policy: "main-direct"
+  default_branch: "main"
+  require_clean_worktree_before_spec: true
+
+  # v0.5: auto-commit on every step boundary (combined with STATE.md update in same commit).
+  auto_commit_per_step: true
+
+  # NEVER auto-push. 使用者必須明說「push / 推上去 / 發布」才推。
+  # 本專案額外原因:push = 公開發布瑄瑄個人資料,必須經使用者明確同意(見 ADR-001/ADR-002)。
+  auto_push: false
+
+status_rules:
+  roadmap_is_progress_source: true
+  status_keeps_module_history: true
+  acceptance_requires_evidence: true
+  now_points_to_next_task_only: true
+
+quality_gates:
+  require_tests_before_done: false # 無測試套件;驗收改用 build + 隱私 grep + 瀏覽器驗證
+  require_acceptance_evidence_before_done: true
+  require_implementation_feedback: false # lite 模式免收尾三 prompt,重大發現直接寫 DECISIONS
+  require_status_sync: true
