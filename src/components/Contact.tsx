@@ -5,43 +5,47 @@ import SectionTitle from "./SectionTitle";
 
 export default function Contact() {
   return (
-    <section id="contact" className="scroll-mt-20 mx-auto max-w-3xl px-4 py-14">
-      <SectionTitle eyebrow="Contact" title="合作邀約" />
-      <div className="rounded-[2rem] border border-blush-300 bg-gradient-to-br from-blush-200 via-blush-100 to-white p-8 md:p-10 text-center shadow-sm">
-        <p className="text-cocoa-800 leading-relaxed">
-          展場活動、專櫃檔期、快閃派樣、典禮接待——
-          <br className="hidden md:block" />
-          歡迎透過 LINE 洽詢檔期與細節，看到訊息會盡快回覆！
-        </p>
+    <section id="contact" className="scroll-mt-20 border-t border-hairline">
+      <div className="mx-auto max-w-3xl px-5 py-20">
+        <SectionTitle eyebrow="Contact" title="合作邀約" />
+        <div className="rounded-3xl border border-hairline bg-surface px-8 py-12 text-center md:px-12">
+          <p className="leading-relaxed text-ink/90">
+            展場活動、專櫃檔期、快閃派樣、典禮接待——
+            <br className="hidden md:block" />
+            歡迎透過 LINE 洽詢檔期與細節，看到訊息會盡快回覆。
+          </p>
 
-        <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 shadow-sm">
-          <span className="text-sm text-cocoa-500">LINE ID</span>
-          <span className="font-display font-bold tracking-wider text-cocoa-900">
-            {profile.lineId}
-          </span>
-          <CopyButton text={profile.lineId} />
-        </div>
+          <div className="mt-8 inline-flex items-center gap-4 border-y border-hairline px-6 py-3.5">
+            <span className="text-[11px] uppercase tracking-[0.25em] text-muted">
+              LINE ID
+            </span>
+            <span className="font-serif text-lg font-semibold tracking-widest text-gold">
+              {profile.lineId}
+            </span>
+            <CopyButton text={profile.lineId} />
+          </div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a
-            href={profile.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-line-green px-7 py-3 font-bold text-white shadow-md hover:opacity-90 transition-opacity"
-          >
-            <LineIcon className="size-5" />
-            加 LINE 聊聊
-          </a>
-          {profile.instagram && (
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href={`https://www.instagram.com/${profile.instagram}`}
+              href={profile.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-rose-300 bg-white px-7 py-3 font-bold text-rose-500 hover:bg-blush-100 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3 font-bold text-canvas transition-colors hover:bg-gold-strong"
             >
-              Instagram
+              <LineIcon className="size-5" />
+              加 LINE 聊聊
             </a>
-          )}
+            {profile.instagram && (
+              <a
+                href={`https://www.instagram.com/${profile.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-hairline px-8 py-3 font-medium text-ink transition-colors hover:border-gold hover:text-gold"
+              >
+                Instagram
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </section>

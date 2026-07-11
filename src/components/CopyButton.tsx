@@ -17,10 +17,10 @@ export default function CopyButton({ text }: { text: string }) {
           // 剪貼簿權限被拒時靜默略過,ID 本身就顯示在畫面上
         }
       }}
-      className={`rounded-full border px-3 py-1 text-xs transition-colors ${
+      className={`rounded-full border px-3.5 py-1 text-xs tracking-wide transition-colors ${
         copied
-          ? "border-line-green text-line-green"
-          : "border-blush-300 text-cocoa-600 hover:border-rose-300 hover:text-rose-500"
+          ? "border-gold text-gold"
+          : "border-hairline text-muted hover:border-gold hover:text-gold"
       }`}
     >
       {copied ? "已複製 ✓" : "複製"}

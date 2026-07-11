@@ -7,90 +7,85 @@ import { LineIcon } from "./Nav";
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      {/* 背景柔光 */}
-      <div className="pointer-events-none absolute -top-24 -left-24 size-80 rounded-full bg-rose-300/25 blur-3xl" />
-      <div className="pointer-events-none absolute top-40 -right-28 size-96 rounded-full bg-blush-300/40 blur-3xl" />
+      {/* 背景氛圍:極淡的金色光暈 */}
+      <div className="pointer-events-none absolute -top-32 right-[-10%] size-[28rem] rounded-full bg-gold/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-5xl px-4 pt-10 pb-16 grid gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-center">
-        {/* 照片（手機版在最上面） */}
-        <div className="md:order-2 flex justify-center">
-          <div className="relative w-64 sm:w-72 md:w-80">
-            <div className="absolute inset-0 -rotate-3 rounded-[2rem] bg-blush-300/70" />
-            <Image
-              src={asset(`/photos/${heroPhoto.file}`)}
-              alt={`${profile.stageName} 形象照 - ${heroPhoto.caption}`}
-              width={heroPhoto.w}
-              height={heroPhoto.h}
-              priority
-              className="relative rotate-2 rounded-[2rem] border-4 border-white shadow-xl"
-            />
-            <span className="absolute bottom-3 left-3 rotate-2 rounded-full bg-white/90 px-3 py-1 text-xs text-cocoa-600 shadow-sm">
-              ✿ {heroPhoto.caption}
-            </span>
-          </div>
-        </div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 pb-20 md:grid-cols-[1.1fr_0.9fr] md:pt-20">
+        {/* 文字(手機版照片在上) */}
+        <div className="order-2 md:order-1">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+            {profile.eyebrow}
+          </p>
 
-        {/* 文字 */}
-        <div className="md:order-1 text-center md:text-left">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-blush-300 bg-white px-4 py-1.5 text-sm text-rose-500 shadow-sm">
-            <span className="size-2 rounded-full bg-line-green animate-pulse" />
-            活動邀約開放中
-          </span>
-
-          <h1 className="mt-5 text-5xl md:text-6xl font-black tracking-wide text-cocoa-900">
+          <h1 className="mt-5 font-serif text-6xl font-black leading-none tracking-wide md:text-7xl">
             {profile.stageName}
-            <span className="font-display text-2xl md:text-3xl text-rose-400 ml-3 align-middle">
+            <span className="mt-3 block font-serif text-xl font-medium italic tracking-[0.3em] text-gold md:text-2xl">
               {profile.englishName}
             </span>
           </h1>
-          <p className="mt-3 text-cocoa-600">
-            {profile.fullName}｜{profile.tagline}
+
+          <p className="mt-4 text-sm text-muted">
+            {profile.fullName}
+            <span className="mx-2 text-hairline">|</span>
+            {profile.traits.join("・")}
           </p>
 
-          <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
-            {profile.roles.map((role) => (
-              <span
-                key={role}
-                className="rounded-full bg-blush-200 px-3 py-1 text-sm text-cocoa-800"
-              >
-                {role}
-              </span>
+          {/* 濃縮自介(ADR-005:獨立自介區已整合) */}
+          <div className="mt-6 max-w-lg space-y-2 leading-relaxed text-ink/90">
+            {profile.intro.map((line) => (
+              <p key={line.slice(0, 8)}>{line}</p>
             ))}
           </div>
 
-          <dl className="mt-6 grid grid-cols-3 gap-3 max-w-sm mx-auto md:mx-0">
+          {/* 數據列:細線分隔 */}
+          <dl className="mt-8 flex max-w-md divide-x divide-hairline border-y border-hairline">
             {profile.stats.map((s) => (
-              <div
-                key={s.label}
-                className="rounded-2xl border border-blush-200 bg-white px-3 py-3 text-center shadow-sm"
-              >
-                <dt className="text-xs text-cocoa-500">{s.label}</dt>
-                <dd className="mt-1 font-display font-bold text-rose-500 text-lg leading-none">
+              <div key={s.label} className="flex-1 px-4 py-4 text-center first:pl-0 md:text-left">
+                <dt className="text-[11px] uppercase tracking-[0.2em] text-muted">
+                  {s.label}
+                </dt>
+                <dd className="mt-1.5 font-serif text-lg font-semibold text-gold">
                   {s.value}
-                  {s.unit && (
-                    <span className="text-xs text-cocoa-500 ml-0.5">{s.unit}</span>
-                  )}
+                  {s.unit && <span className="ml-0.5 text-xs text-muted">{s.unit}</span>}
                 </dd>
               </div>
             ))}
           </dl>
 
-          <div className="mt-7 flex flex-wrap justify-center md:justify-start gap-3">
+          <div className="mt-9 flex flex-wrap gap-4">
             <a
               href={profile.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-line-green px-6 py-3 font-bold text-white shadow-md hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 font-bold text-canvas transition-colors hover:bg-gold-strong"
             >
               <LineIcon className="size-5" />
               LINE 邀約
             </a>
             <a
               href="#gallery"
-              className="inline-flex items-center rounded-full border-2 border-rose-300 bg-white px-6 py-3 font-bold text-rose-500 hover:bg-blush-100 transition-colors"
+              className="inline-flex items-center rounded-full border border-hairline bg-surface px-7 py-3 font-medium text-ink transition-colors hover:border-gold hover:text-gold"
             >
-              查看作品 ♡
+              查看作品
             </a>
+          </div>
+        </div>
+
+        {/* 形象照 */}
+        <div className="order-1 flex justify-center md:order-2 md:justify-end">
+          <div className="relative w-64 sm:w-72 md:w-80">
+            <div className="absolute -inset-3 rounded-[1.75rem] border border-gold/30" />
+            <Image
+              src={asset(`/photos/${heroPhoto.file}`)}
+              alt={`${profile.stageName} 形象照 — ${heroPhoto.caption}`}
+              width={heroPhoto.w}
+              height={heroPhoto.h}
+              priority
+              className="relative rounded-3xl object-cover shadow-2xl"
+            />
+            <span className="absolute bottom-4 left-4 rounded-full bg-overlay px-3.5 py-1.5 text-xs tracking-wide text-ink backdrop-blur-sm">
+              {heroPhoto.caption}
+            </span>
           </div>
         </div>
       </div>

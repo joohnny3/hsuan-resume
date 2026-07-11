@@ -1,6 +1,5 @@
-import About from "@/components/About";
+import BrandWall from "@/components/BrandWall";
 import Contact from "@/components/Contact";
-import Experience from "@/components/Experience";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
@@ -12,14 +11,18 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
-        <About />
-        <Experience />
+        <BrandWall />
         <Gallery />
         <Contact />
       </main>
-      <footer className="border-t border-blush-200 py-8 text-center text-xs text-cocoa-500">
-        © {new Date().getFullYear()} {profile.stageName} {profile.englishName}
-        ｜{profile.tagline}｜Made with ♡
+      <footer className="border-t border-hairline py-10 text-center">
+        <p className="font-serif text-sm tracking-[0.25em] text-muted">
+          {profile.stageName}
+          <span className="mx-2 italic text-gold">{profile.englishName}</span>
+        </p>
+        <p className="mt-2 text-xs text-muted/70">
+          © {new Date().getFullYear()} {profile.tagline}・專櫃美妝・快閃派樣・典禮接待
+        </p>
       </footer>
     </>
   );

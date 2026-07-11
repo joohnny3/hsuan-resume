@@ -1,25 +1,48 @@
 @import "tailwindcss";
 
-@theme {
-  /* 粉嫩甜美但乾淨的色票 */
-  --color-blush-50: #fffafb;
-  --color-blush-100: #fff3f5;
-  --color-blush-200: #ffe6eb;
-  --color-blush-300: #ffd4dd;
-  --color-rose-300: #f7a8b8;
-  --color-rose-400: #f28ca2;
-  --color-rose-500: #ec6f8e;
-  --color-rose-600: #d95579;
-  --color-cocoa-500: #a08289;
-  --color-cocoa-600: #8c6e76;
-  --color-cocoa-800: #5c464d;
-  --color-cocoa-900: #43333a;
-  --color-line-green: #06c755;
+/* ---- 主題 token（ADR-004）----
+   深色奢華為預設;[data-theme="light"] 切象牙日間。
+   元件一律用語意色(canvas/surface/ink/muted/gold/hairline),不要硬編色碼。 */
+:root,
+[data-theme="dark"] {
+  --canvas: #0e0d0b;
+  --surface: #161410;
+  --surface-2: #1e1b15;
+  --ink: #ece7dc;
+  --muted: #a59c8a;
+  --gold: #c9a26b;
+  --gold-strong: #ddb87e;
+  --hairline: #2b2721;
+  --overlay: rgba(10, 9, 7, 0.55);
+}
+
+[data-theme="light"] {
+  --canvas: #f6f3ec;
+  --surface: #fffdf8;
+  --surface-2: #efeadf;
+  --ink: #221d16;
+  --muted: #71685a;
+  --gold: #9a7b3f;
+  --gold-strong: #7e6330;
+  --hairline: #e2dbcc;
+  --overlay: rgba(34, 29, 22, 0.45);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-strong: var(--gold-strong);
+  --color-hairline: var(--hairline);
+  --color-overlay: var(--overlay);
 
   --font-sans: var(--font-noto), "PingFang TC", "Microsoft JhengHei",
     ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-quicksand), var(--font-noto), ui-sans-serif,
-    system-ui, sans-serif;
+  --font-serif: var(--font-playfair), var(--font-serif-tc), "PMingLiU", Georgia,
+    ui-serif, serif;
 }
 
 html {
@@ -27,12 +50,13 @@ html {
 }
 
 body {
-  background: var(--color-blush-50);
-  color: var(--color-cocoa-900);
+  background: var(--canvas);
+  color: var(--ink);
   font-family: var(--font-sans);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 ::selection {
-  background: var(--color-rose-300);
-  color: #fff;
+  background: var(--gold);
+  color: var(--canvas);
 }

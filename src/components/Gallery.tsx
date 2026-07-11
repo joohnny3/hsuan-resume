@@ -42,122 +42,120 @@ export default function Gallery() {
     key === "all" ? photos.length : photos.filter((p) => p.category === key).length;
 
   return (
-    <section id="gallery" className="scroll-mt-20 mx-auto max-w-5xl px-4 py-14">
-      <SectionTitle
-        eyebrow="Gallery"
-        title="活動照片牆"
-        sub="點照片可放大瀏覽"
-      />
+    <section id="gallery" className="scroll-mt-20 border-t border-hairline">
+      <div className="mx-auto max-w-6xl px-5 py-20">
+        <SectionTitle
+          eyebrow="Gallery"
+          title="活動照片"
+          sub="點照片可放大瀏覽完整原圖"
+        />
 
-      <div className="mb-6 flex flex-wrap justify-center gap-2">
-        {galleryCategories.map(({ key, label }) => (
-          <button
-            key={key}
-            type="button"
-            onClick={() => {
-              setCat(key);
-              setCurrent(null);
-            }}
-            className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-              cat === key
-                ? "border-rose-500 bg-rose-500 font-bold text-white shadow-sm"
-                : "border-blush-300 bg-white text-cocoa-600 hover:border-rose-300 hover:text-rose-500"
-            }`}
-          >
-            {label}
-            <span className="ml-1 font-display text-xs opacity-70">
-              {countOf(key)}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      <div className="columns-2 gap-3 md:columns-3">
-        {filtered.map((photo, i) => (
-          <figure
-            key={photo.file}
-            className="mb-3 break-inside-avoid overflow-hidden rounded-2xl border border-blush-200 bg-white shadow-sm"
-          >
+        <div className="mb-10 flex flex-wrap justify-center gap-2.5">
+          {galleryCategories.map(({ key, label }) => (
             <button
+              key={key}
+              type="button"
+              onClick={() => {
+                setCat(key);
+                setCurrent(null);
+              }}
+              className={`rounded-full border px-5 py-2 text-sm transition-colors ${
+                cat === key
+                  ? "border-gold bg-gold font-bold text-canvas"
+                  : "border-hairline bg-surface text-muted hover:border-gold hover:text-gold"
+              }`}
+            >
+              {label}
+              <span className="ml-1.5 text-xs opacity-60">{countOf(key)}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* 統一 3:4 直式卡(ADR-005),裁切構圖偏上避免砍頭 */}
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          {filtered.map((photo, i) => (
+            <button
+              key={photo.file}
               type="button"
               onClick={() => setCurrent(i)}
-              className="block w-full cursor-zoom-in"
-              aria-label={`放大檢視：${photo.caption}`}
+              aria-label={`放大檢視:${photo.caption}`}
+              className="group relative aspect-[3/4] cursor-zoom-in overflow-hidden rounded-xl bg-surface ring-1 ring-hairline"
             >
               <Image
                 src={asset(`/photos/${photo.file}`)}
                 alt={photo.caption}
-                width={photo.w}
-                height={photo.h}
-                className="w-full h-auto transition-transform duration-300 hover:scale-[1.03]"
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover object-[50%_18%] transition-transform duration-500 group-hover:scale-105"
               />
-            </button>
-            <figcaption className="px-3 py-2 text-xs text-cocoa-600">
-              ✿ {photo.caption}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-
-      {current !== null && filtered[current] && (
-        <div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-cocoa-900/90 p-4"
-          onClick={close}
-          role="dialog"
-          aria-modal="true"
-          aria-label={filtered[current].caption}
-        >
-          <div
-            className="relative flex max-h-full flex-col items-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={asset(`/photos/${filtered[current].file}`)}
-              alt={filtered[current].caption}
-              width={filtered[current].w}
-              height={filtered[current].h}
-              className="max-h-[78vh] w-auto rounded-2xl"
-            />
-            <p className="mt-4 text-sm text-white/90">
-              {filtered[current].caption}
-              <span className="ml-2 font-display text-white/50">
-                {current + 1} / {filtered.length}
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-2.5 pt-10 text-left text-xs tracking-wide text-white/90">
+                {photo.caption}
               </span>
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              step(-1);
-            }}
-            aria-label="上一張"
-            className="absolute left-3 top-1/2 -translate-y-1/2 flex size-11 items-center justify-center rounded-full bg-white/15 text-2xl text-white hover:bg-white/30 transition-colors"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              step(1);
-            }}
-            aria-label="下一張"
-            className="absolute right-3 top-1/2 -translate-y-1/2 flex size-11 items-center justify-center rounded-full bg-white/15 text-2xl text-white hover:bg-white/30 transition-colors"
-          >
-            ›
-          </button>
-          <button
-            type="button"
-            onClick={close}
-            aria-label="關閉"
-            className="absolute right-3 top-3 flex size-11 items-center justify-center rounded-full bg-white/15 text-xl text-white hover:bg-white/30 transition-colors"
-          >
-            ✕
-          </button>
+            </button>
+          ))}
         </div>
-      )}
+
+        {current !== null && filtered[current] && (
+          <div
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 p-4"
+            onClick={close}
+            role="dialog"
+            aria-modal="true"
+            aria-label={filtered[current].caption}
+          >
+            <div
+              className="relative flex max-h-full flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* 燈箱顯示完整未裁切原圖 */}
+              <Image
+                src={asset(`/photos/${filtered[current].file}`)}
+                alt={filtered[current].caption}
+                width={filtered[current].w}
+                height={filtered[current].h}
+                className="max-h-[80vh] w-auto rounded-lg"
+              />
+              <p className="mt-4 font-serif text-sm tracking-wide text-white/90">
+                {filtered[current].caption}
+                <span className="ml-3 text-xs text-white/40">
+                  {current + 1} / {filtered.length}
+                </span>
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                step(-1);
+              }}
+              aria-label="上一張"
+              className="absolute left-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-2xl text-white/80 transition-colors hover:border-gold hover:text-gold"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                step(1);
+              }}
+              aria-label="下一張"
+              className="absolute right-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-2xl text-white/80 transition-colors hover:border-gold hover:text-gold"
+            >
+              ›
+            </button>
+            <button
+              type="button"
+              onClick={close}
+              aria-label="關閉"
+              className="absolute right-3 top-3 flex size-11 items-center justify-center rounded-full border border-white/20 text-lg text-white/80 transition-colors hover:border-gold hover:text-gold"
+            >
+              ✕
+            </button>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
