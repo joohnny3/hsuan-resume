@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 4
-  title: "配色系統 v3：石墨×玫瑰粉（完成）"
+  n: 5
+  title: "S9 視覺微調批次：光暈／簽名 logo／header 精簡（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 3
-  title: "驗證＋狀態同步"
-  commit: "b9a81ea"
+  n: 4
+  title: "配色系統 v3：石墨×玫瑰粉"
+  commit: "fb21a7c"
   completed_at: "2026-07-12"
 next_step:
-  n: 5
+  n: 6
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#4**: 配色系統 v3（石墨×玫瑰粉，ADR-007）— 完成。雙主題 token 逐字符合使用者色票，OG/favicon 同步重製。
+- **#5**: S9 視覺微調批次 — 完成。移除 Hero 光暈；header 文字 logo 換成簽名檔 `hsuuan-sign.svg`（CSS mask＋bg-ink 隨主題翻色）；移除 header LINE 按鈕。
 
 ## 下一個 Step
 
-- **#5**: 等使用者選擇（S9 不可自動選）：
+- **#6**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
@@ -60,8 +60,8 @@ blockers: []
 
 ## Module Progress
 
-- M1-editorial-redesign: 4 / 4 steps ✅（step 4 為 S9 內追加微調）
-- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆／配色 v3 token 驗證）
+- M1-editorial-redesign: 5 / 5 steps ✅（step 4-5 為 S9 內追加微調）
+- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆／配色 v3 token／簽名 logo 雙主題可見）
 
 ## Recent commits（本模組）
 

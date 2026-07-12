@@ -1,5 +1,8 @@
 import { profile } from "@/data/profile";
+import { asset } from "@/lib/site";
 import ThemeToggle from "./ThemeToggle";
+
+const sign = asset("/hsuuan-sign.svg");
 
 const links = [
   ["#brands", "品牌"],
@@ -11,11 +14,25 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-canvas/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#top" className="font-serif text-xl font-bold tracking-wide">
-          {profile.stageName}
-          <span className="ml-2 font-serif italic text-accent text-base tracking-widest">
-            {profile.englishName}
-          </span>
+        <a
+          href="#top"
+          aria-label={`${profile.stageName} ${profile.englishName}`}
+          className="flex items-center"
+        >
+          <span
+            aria-hidden
+            className="block h-9 w-24 bg-ink transition-colors"
+            style={{
+              maskImage: `url(${sign})`,
+              WebkitMaskImage: `url(${sign})`,
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              maskPosition: "left center",
+              WebkitMaskPosition: "left center",
+              maskSize: "contain",
+              WebkitMaskSize: "contain",
+            }}
+          />
         </a>
 
         <nav className="flex items-center gap-5 md:gap-7">
@@ -29,15 +46,6 @@ export default function Nav() {
             </a>
           ))}
           <ThemeToggle />
-          <a
-            href={profile.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm font-bold text-on-accent transition-colors hover:bg-accent-hover"
-          >
-            <LineIcon className="size-4" />
-            LINE 邀約
-          </a>
         </nav>
       </div>
     </header>

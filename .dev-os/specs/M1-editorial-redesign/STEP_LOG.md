@@ -46,5 +46,18 @@
   - CopyButton 已複製態與 Gallery pill hover 加 `accent-soft` 提示背景
   - viewport themeColor 改 `#101116`；OG 分享圖＋favicon 重製為石墨×玫瑰（v3 腳本）
 - **驗證**：build exit 0；雙主題 computed token 逐字符合色票；切換鈕雙向實點＋localStorage 記憶；console 0 錯誤；`gold`／舊色碼殘留 0 筆；「瑋」src／out 0 筆
+- **Commit**：`fb21a7c`
+- **偏離**：無
+
+---
+
+## Step 5 — S9 視覺微調批次：光暈／簽名 logo／header 精簡（2026-07-12）
+
+- **State**：S9 內追加微調（使用者逐項回饋＝選項 C，續留同對話）
+- **做了什麼**：
+  - 移除 Hero 背景玫瑰光暈:`accent/10 blur` 在日間暖白底變成右上角明顯粉斑,直接刪裝飾元素(commit `4c886c4`)
+  - Header 文字 logo「瑄瑄 HSUAN」換成使用者提供的簽名檔:`hsuuan-sign.svg` 由 root 搬進 `public/`＋收緊 viewBox(`220 47 630 242`,去除四周大量留白);用 CSS mask＋`bg-ink` 呈現,純黑簽名改由 alpha 遮罩上主題 ink 色,深色近白/日間近黑皆清晰
+  - 移除 header 的「LINE 邀約」按鈕(Hero 與 邀約區的 LINE CTA 保留);`LineIcon` export 仍在(Hero/Contact 使用)
+- **驗證**：build exit 0；`out/hsuuan-sign.svg` 已輸出；DOM 確認 header 無 line.me 按鈕、logo mask 尺寸 96×36、bg 隨主題翻色；雙主題截圖簽名皆可見；console 0 錯誤
 - **Commit**：（本 step commit）
 - **偏離**：無
