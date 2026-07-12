@@ -291,5 +291,21 @@
   - `Nav.tsx`:新增條列 `ListIcon`＋第三連結 `#experience`「活動經歷」(沿用 hover/focus 滑出文字),順序對齊頁面
 - **驗證**：build exit 0;DOM 標題=活動經歷、34 項各有圓點、**殘留日期 0 筆**、section 順序 top→brands→experience→gallery、nav 3 連結 aria-label 正確(合作品牌/活動經歷/精選活動)、桌機 column-count=2(兩欄 x=77/657、第 18 項落右欄);console 僅先前查明之 dev-tools overlay 雜訊
 - **待確認(已於報告標明)**：`保護貼推廣`、`ROG GAMEFORCE`(原字 GAMFORCE);Doritos 已逕修為 多力多滋
-- **Commit**：（本 step commit）
+- **Commit**：`7ca5254`
 - **偏離**：新增 nav 項屬功能擴充(使用者未明說但將其列為與合作品牌/精選活動並列的區塊,合理延伸;已報告可要求移除)
+
+---
+
+## Step 22 — 🚀 首次發布上線 GitHub Pages（2026-07-12）
+
+- **State**：S9 → 發布(使用者明說「發布／push」= ADR-002 gate 通過);達成 VISION stage 1「可分享上線」
+- **發布前隱私硬檢查(ADR-001)**：99 追蹤檔中無 PDF／手機原圖／`originals/`／台灣手機號;`.gitignore` 擋 `/originals/`、`*.pdf`、`S__*.jpg`;`QQ.svg`、`taiwan-brand-official-links.md` 未追蹤不會上傳
+- **做了什麼**：
+  - 使用者確認 repo 可見性 = **公開**(GitHub Pages 免費方案需公開;原始碼僅含已授權公開資料)
+  - `gh repo create joohnny3/hsuan-resume --public`(homepage 指向 Pages URL)→ `git remote add origin` → `git push -u origin main`
+  - `gh api POST /pages -f build_type=workflow` 啟用 Pages(來源=GitHub Actions)
+  - 首次 run 因競態(configure-pages 早於 Pages 啟用)失敗 → 啟用後 `gh run rerun --failed` 重跑成功
+- **驗證**：Actions build✓ deploy✓;線上 https://joohnny3.github.io/hsuan-resume/ HTTP 200;DOM 4 區塊齊全、品牌 26／活動 34／照片 37／nav 3、姓名張庭瑄(瑄非瑋);**線上 HTML 電話 0 筆**;hero 圖與抽樣 gallery 圖 curl 全 200 image/webp(basePath 解析正確);CSS/暗色模式正常
+- **已知環境註記**：預覽瀏覽器凍結 → 懶載入圖在此不顯示,但 curl 證實圖檔皆 200,實機正常
+- **Commit**：（本 step commit,dev-os 記錄;預設本地不自動推,見報告）
+- **偏離**：無

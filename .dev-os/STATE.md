@@ -18,19 +18,23 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 21
-  title: "新增活動經歷區（條列、去日期）＋nav 第三 icon（完成）"
+  n: 22
+  title: "🚀 首次發布上線 GitHub Pages（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 20
-  title: "品牌牆改官網連結＋移除左線"
-  commit: "042fa3a"
+  n: 21
+  title: "新增活動經歷區（條列、去日期）＋nav 第三 icon"
+  commit: "7ca5254"
   completed_at: "2026-07-12"
 next_step:
-  n: 22
-  title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
+  n: 23
+  title: "等使用者選擇:繼續微調 / M3 補內容 / 收尾。dev-os 本地 commit 待確認是否推送"
   location: "same conversation"
+published:
+  live_url: "https://joohnny3.github.io/hsuan-resume/"
+  repo: "joohnny3/hsuan-resume (public)"
+  first_deploy: "2026-07-12"
 blockers: []
 ---
 
@@ -39,17 +43,19 @@ blockers: []
 ## 當前狀態
 
 - **Phase**: Phase 1 — Editorial 改版
-- **Module**: M1-editorial-redesign — **已完成（S9，含 step 4 配色 v3 微調）**
-- **Branch**: main
+- **Module**: M1-editorial-redesign — **已完成並發布上線 🚀**
+- **Live**: https://joohnny3.github.io/hsuan-resume/ （repo: joohnny3/hsuan-resume, public）
+- **Branch**: main（origin 已設定;dev-os step 22 記錄為本地 commit,尚未推送）
 - **Last update**: 2026-07-12
 
 ## 當前 Step
 
-- **#21**: 新增「活動經歷」區 — 完成。34 筆活動依新→舊排列、**去日期**、條列(accent 圓點)、桌機雙欄;插入於 合作品牌 → 活動經歷 → 精選活動;nav 新增第三 icon(條列)hover 展開「活動經歷」。Doritos 錯字已修;保護貼推廣／ROG GAMEFORCE 待使用者確認。
+- **#22**: 🚀 首次發布上線 — 完成。建立公開 repo joohnny3/hsuan-resume、push main、啟用 Pages(GitHub Actions)、workflow build+deploy 成功。線上站 200、四區塊齊全、電話 0 筆、圖檔全 200。達成 VISION stage 1「可分享上線」。
 
 ## 下一個 Step
 
-- **#22**: 等使用者選擇（S9 不可自動選）：
+- **#23**: 等使用者選擇（S9 不可自動選）：
+  - **dev-os step 22 記錄**目前為本地 commit,未推送(避免多一次冗餘 redeploy;要同步 origin 說一聲即可)
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
