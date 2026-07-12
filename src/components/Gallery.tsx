@@ -35,7 +35,7 @@ export default function Gallery() {
   return (
     <section id="gallery" className="scroll-mt-20 border-t border-hairline">
       <div className="mx-auto max-w-6xl px-5 py-20">
-        <SectionTitle title="活動照片" sub="點擊照片可瀏覽完整原圖" />
+        <SectionTitle title="精選活動" sub="點擊照片可瀏覽完整原圖" />
 
         {/* 統一 3:4 直式卡(ADR-005),裁切構圖偏上避免砍頭 */}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">

@@ -249,5 +249,19 @@
   - `profile.ts` 的 `galleryCategories`／`GalleryCategory`／每張 `category` 欄位**保留不動**(未被使用亦不影響 build;哪天要加回篩選很容易)
 - **驗證**：build exit 0;DOM brands eyebrow=null／title=合作品牌／sub 正確、gallery eyebrow=null／title=活動照片／sub=點擊照片可瀏覽完整原圖、分類列 filterRowExists=false、照片鈕 37 顆;console 0 錯
 - **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
-- **Commit**：（本 step commit）
+- **Commit**：`b72e7d1`
 - **偏離**：使用者兩段「改成」皆省略英文小標,判定為要移除 eyebrow(已於報告標明,可要求復原)
+
+---
+
+## Step 19 — 精選活動改名 ＋ Hero 照片去框 ＋ nav icon 化 hover 展開（2026-07-12）
+
+- **State**：S9 內追加微調（使用者看預覽截圖回饋＝選項 C）
+- **做了什麼**：
+  - Gallery 標題「活動照片」→「**精選活動**」(副標不變)
+  - Hero 形象照:移除外圈淡粉外框(`absolute -inset-3 border-accent/30` 的 div);img 去掉多餘 `relative`
+  - Nav:「品牌／作品」兩個**文字連結改 icon**(新增 `BrandTagIcon` 標籤／`GalleryImageIcon` 相簿,沿用既有 outline 風格);**hover 或鍵盤 focus-visible 才滑出文字**「合作品牌」「精選活動」(常態 `max-w-0 opacity-0`,`group-hover`/`group-focus-visible` 展開至 `max-w-[6rem] opacity-100 ml-2`,`transition-all 300ms`,含 `motion-reduce:transition-none`);`aria-label` 保可及名稱
+- **驗證**：build exit 0;DOM galleryTitle=精選活動、heroFrameRemoved=true(img class 剩 rounded-3xl object-cover shadow-2xl)、nav 兩連結各有 svg／aria-label 正確／常態 max-width:0 opacity:0;a11y tree 連結名=合作品牌／精選活動;**真實 hover＋暫關 transition 實測 span max-width:96px・opacity:1・ml:8px・字寬 56px(展開有效)**;編譯 CSS 含 group-hover/group-focus-visible 的 max-width:6rem 規則;console 0 錯
+- **已知環境註記**:預覽 compositor 凍結 → transition 停在第 0 幀,故常態讀 hover 值仍為 0;關掉 transition 後即證實規則生效。實機(hover:hover 環境,本預覽 matchMedia 亦回報 true)平滑展開
+- **Commit**：（本 step commit）
+- **偏離**：無

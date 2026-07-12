@@ -104,14 +104,13 @@ export default function Hero() {
         {/* 形象照 */}
         <div className="order-1 flex justify-center md:order-2 md:justify-end">
           <div className="relative w-64 sm:w-72 md:w-80">
-            <div className="absolute -inset-3 rounded-[1.75rem] border border-accent/30" />
             <Image
               src={asset(`/photos/${heroPhoto.file}`)}
               alt={`${profile.stageName} 形象照 — ${heroPhoto.caption}`}
               width={heroPhoto.w}
               height={heroPhoto.h}
               priority
-              className="relative rounded-3xl object-cover shadow-2xl"
+              className="rounded-3xl object-cover shadow-2xl"
             />
             <span className="absolute bottom-4 left-4 rounded-full bg-overlay px-3.5 py-1.5 text-xs tracking-wide text-white/90 backdrop-blur-sm">
               {heroPhoto.caption}

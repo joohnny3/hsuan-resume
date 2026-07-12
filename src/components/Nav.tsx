@@ -4,9 +4,50 @@ import ThemeToggle from "./ThemeToggle";
 
 const sign = asset("/hsuuan-sign.svg");
 
+type IconProps = { className?: string };
+
+/** 合作品牌:標籤 icon */
+function BrandTagIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+      <circle cx="7.5" cy="7.5" r="1.15" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+/** 精選活動:相簿 icon */
+function GalleryImageIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2.5" />
+      <circle cx="8.5" cy="8.5" r="1.6" />
+      <path d="m21 15-4.2-4.2a2 2 0 0 0-2.8 0L5 20" />
+    </svg>
+  );
+}
+
 const links = [
-  ["#brands", "品牌"],
-  ["#gallery", "作品"],
+  { href: "#brands", label: "合作品牌", Icon: BrandTagIcon },
+  { href: "#gallery", label: "精選活動", Icon: GalleryImageIcon },
 ] as const;
 
 export default function Nav() {
@@ -34,14 +75,18 @@ export default function Nav() {
           />
         </a>
 
-        <nav className="flex items-center gap-5 md:gap-7">
-          {links.map(([href, label]) => (
+        <nav className="flex items-center gap-1 md:gap-2">
+          {links.map(({ href, label, Icon }) => (
             <a
               key={href}
               href={href}
-              className="text-sm text-muted transition-colors hover:text-accent"
+              aria-label={label}
+              className="group flex items-center rounded-full px-2 py-2 text-muted transition-colors hover:text-accent"
             >
-              {label}
+              <Icon className="size-5 shrink-0" />
+              <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 transition-all duration-300 group-hover:ml-2 group-hover:max-w-[6rem] group-hover:opacity-100 group-focus-visible:ml-2 group-focus-visible:max-w-[6rem] group-focus-visible:opacity-100 motion-reduce:transition-none">
+                {label}
+              </span>
             </a>
           ))}
           <ThemeToggle />
