@@ -19,8 +19,8 @@ export default function CopyButton({ text }: { text: string }) {
       }}
       className={`rounded-full border px-3.5 py-1 text-xs tracking-wide transition-colors ${
         copied
-          ? "border-gold text-gold"
-          : "border-hairline text-muted hover:border-gold hover:text-gold"
+          ? "border-accent bg-accent-soft text-accent"
+          : "border-hairline text-muted hover:border-accent hover:text-accent"
       }`}
     >
       {copied ? "已複製 ✓" : "複製"}

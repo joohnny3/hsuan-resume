@@ -61,8 +61,8 @@ export default function Gallery() {
               }}
               className={`rounded-full border px-5 py-2 text-sm transition-colors ${
                 cat === key
-                  ? "border-gold bg-gold font-bold text-canvas"
-                  : "border-hairline bg-surface text-muted hover:border-gold hover:text-gold"
+                  ? "border-accent bg-accent font-bold text-on-accent"
+                  : "border-hairline bg-surface text-muted hover:border-accent hover:bg-accent-soft hover:text-accent"
               }`}
             >
               {label}
@@ -130,7 +130,7 @@ export default function Gallery() {
                 step(-1);
               }}
               aria-label="上一張"
-              className="absolute left-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-2xl text-white/80 transition-colors hover:border-gold hover:text-gold"
+              className="absolute left-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-2xl text-white/80 transition-colors hover:border-accent hover:text-accent"
             >
               ‹
             </button>
@@ -141,7 +141,7 @@ export default function Gallery() {
                 step(1);
               }}
               aria-label="下一張"
-              className="absolute right-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-2xl text-white/80 transition-colors hover:border-gold hover:text-gold"
+              className="absolute right-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-2xl text-white/80 transition-colors hover:border-accent hover:text-accent"
             >
               ›
             </button>
@@ -149,7 +149,7 @@ export default function Gallery() {
               type="button"
               onClick={close}
               aria-label="關閉"
-              className="absolute right-3 top-3 flex size-11 items-center justify-center rounded-full border border-white/20 text-lg text-white/80 transition-colors hover:border-gold hover:text-gold"
+              className="absolute right-3 top-3 flex size-11 items-center justify-center rounded-full border border-white/20 text-lg text-white/80 transition-colors hover:border-accent hover:text-accent"
             >
               ✕
             </button>

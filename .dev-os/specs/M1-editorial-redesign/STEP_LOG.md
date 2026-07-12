@@ -34,3 +34,17 @@
 - **做了什麼**：build 通過；隱私 grep 全綠（含把驗收表裡的電話前綴字樣改為程序描述的自我修正）；DOM 驗證日夜切換／3:4 統一／燈箱／品牌字牆；MINI_SPEC 回填驗收證據；ROADMAP M1 → ✅；NOW 指向待使用者決策（M2 發布 gate）
 - **已知環境註記**：本機預覽面板 compositor 凍結導致截圖不可用，視覺證據以 computed style 為準
 - **Blockers**：無（M2 等使用者明說「發布」）
+
+---
+
+## Step 4 — 配色系統 v3：石墨×玫瑰粉（2026-07-12）
+
+- **State**：S9 內追加微調（使用者於 S9 選項中明說改配色＝選項 C）
+- **做了什麼**：
+  - 依使用者完整色票重寫主題 token：`gold`→`accent` 角色改名；新增 `elevated`／`muted-2`／`accent-soft`／`on-accent`；dark `#101116`×`#F27FA5`、light `#F7F7F5`×`#C43F6B`（ADR-007）
+  - 9 個元件換語意色；accent 按鈕文字改 `on-accent`；footer 版權行改 `muted-2`；Hero 照片說明浮章固定白字（順手修正：日間模式原為深字疊深色 scrim）
+  - CopyButton 已複製態與 Gallery pill hover 加 `accent-soft` 提示背景
+  - viewport themeColor 改 `#101116`；OG 分享圖＋favicon 重製為石墨×玫瑰（v3 腳本）
+- **驗證**：build exit 0；雙主題 computed token 逐字符合色票；切換鈕雙向實點＋localStorage 記憶；console 0 錯誤；`gold`／舊色碼殘留 0 筆；「瑋」src／out 0 筆
+- **Commit**：（本 step commit）
+- **偏離**：無

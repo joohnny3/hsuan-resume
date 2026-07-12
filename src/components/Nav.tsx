@@ -13,7 +13,7 @@ export default function Nav() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <a href="#top" className="font-serif text-xl font-bold tracking-wide">
           {profile.stageName}
-          <span className="ml-2 font-serif italic text-gold text-base tracking-widest">
+          <span className="ml-2 font-serif italic text-accent text-base tracking-widest">
             {profile.englishName}
           </span>
         </a>
@@ -23,7 +23,7 @@ export default function Nav() {
             <a
               key={href}
               href={href}
-              className="text-sm text-muted transition-colors hover:text-gold"
+              className="text-sm text-muted transition-colors hover:text-accent"
             >
               {label}
             </a>
@@ -33,7 +33,7 @@ export default function Nav() {
             href={profile.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-sm font-bold text-canvas transition-colors hover:bg-gold-strong"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm font-bold text-on-accent transition-colors hover:bg-accent-hover"
           >
             <LineIcon className="size-4" />
             LINE 邀約

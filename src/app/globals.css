@@ -1,42 +1,56 @@
 @import "tailwindcss";
 
-/* ---- 主題 token（ADR-004）----
-   深色奢華為預設;[data-theme="light"] 切象牙日間。
-   元件一律用語意色(canvas/surface/ink/muted/gold/hairline),不要硬編色碼。 */
+/* ---- 主題 token(ADR-004 主題系統/ADR-007 配色 v3)----
+   深色為預設;[data-theme="light"] 切暖白日間。
+   配色系統 v3:石墨×玫瑰粉(2026-07-12 使用者定案色票)。
+   同一「色彩角色」跨明暗主題使用不同色碼(Material Design 建議),
+   元件一律用語意色(canvas/surface/ink/muted/accent/hairline),不要硬編色碼。 */
 :root,
 [data-theme="dark"] {
-  --canvas: #0e0d0b;
-  --surface: #161410;
-  --surface-2: #1e1b15;
-  --ink: #ece7dc;
-  --muted: #a59c8a;
-  --gold: #c9a26b;
-  --gold-strong: #ddb87e;
-  --hairline: #2b2721;
-  --overlay: rgba(10, 9, 7, 0.55);
+  --canvas: #101116; /* Page Background */
+  --surface: #171920; /* Primary Surface:卡片、Navbar */
+  --surface-2: #20222a; /* Secondary Surface:次層區域、hover */
+  --elevated: #282a33; /* Elevated Surface:modal、浮動元件 */
+  --ink: #f5f2f4; /* Primary Text */
+  --muted: #aaa4ac; /* Secondary Text */
+  --muted-2: #85808a; /* Muted Text:非關鍵 metadata */
+  --hairline: #31343d; /* Border */
+  --accent: #f27fa5; /* Accent Pink:深底用亮玫瑰(對比約 7.5:1) */
+  --accent-hover: #ff9abb; /* Hover / Active */
+  --accent-soft: #2c1821; /* 深酒紅提示背景 */
+  --on-accent: #101116; /* 粉色按鈕上的文字 */
+  --overlay: rgba(16, 17, 22, 0.55);
 }
 
 [data-theme="light"] {
-  --canvas: #f6f3ec;
-  --surface: #fffdf8;
-  --surface-2: #efeadf;
-  --ink: #221d16;
-  --muted: #71685a;
-  --gold: #9a7b3f;
-  --gold-strong: #7e6330;
-  --hairline: #e2dbcc;
-  --overlay: rgba(34, 29, 22, 0.45);
+  --canvas: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #f0eeef;
+  --elevated: #ffffff;
+  --ink: #17171a;
+  --muted: #625d66;
+  --muted-2: #756e78;
+  --hairline: #ded9df;
+  --accent: #c43f6b; /* 暖白底用深玫瑰(對比約 4.58:1,可當一般文字) */
+  --accent-hover: #a93259;
+  --accent-soft: #f8e7ed;
+  --on-accent: #ffffff;
+  --overlay: rgba(23, 23, 26, 0.45);
 }
 
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-elevated: var(--elevated);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-gold: var(--gold);
-  --color-gold-strong: var(--gold-strong);
+  --color-muted-2: var(--muted-2);
   --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
   --color-overlay: var(--overlay);
 
   --font-sans: var(--font-noto), "PingFang TC", "Microsoft JhengHei",
@@ -57,6 +71,6 @@ body {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--canvas);
+  background: var(--accent);
+  color: var(--on-accent);
 }

@@ -9,7 +9,7 @@ export default function SectionTitle({
 }) {
   return (
     <div className="mb-12 text-center">
-      <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+      <p className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
         {eyebrow}
       </p>
       <h2 className="mt-3 font-serif text-3xl font-bold md:text-4xl">{title}</h2>

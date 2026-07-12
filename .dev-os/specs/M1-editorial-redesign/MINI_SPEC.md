@@ -64,7 +64,7 @@ Lite 合規：範圍小 ✅、一天內 ✅、可回滾（git）✅
 ## 完成紀錄
 
 - **完成日期**：2026-07-12
-- **主要 commit**：step 1 `075217d`（root 化＋dev-os）、step 2（editorial 重寫）、step 3（驗證＋狀態同步）——hash 見 git log
+- **主要 commit**：step 1 `075217d`（root 化＋dev-os）、step 2（editorial 重寫）、step 3（驗證＋狀態同步）、step 4（配色 v3 石墨×玫瑰粉，ADR-007）——hash 見 git log
 - **是否需要回填 ROADMAP**：是（已回填 ✅）
 - **是否產生後續工作**：M2 發布待使用者明說；M3 內容補全待素材（IG／新經歷／競選照決定）
 

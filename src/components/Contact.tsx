@@ -19,7 +19,7 @@ export default function Contact() {
             <span className="text-[11px] uppercase tracking-[0.25em] text-muted">
               LINE ID
             </span>
-            <span className="font-serif text-lg font-semibold tracking-widest text-gold">
+            <span className="font-serif text-lg font-semibold tracking-widest text-accent">
               {profile.lineId}
             </span>
             <CopyButton text={profile.lineId} />
@@ -30,7 +30,7 @@ export default function Contact() {
               href={profile.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3 font-bold text-canvas transition-colors hover:bg-gold-strong"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 font-bold text-on-accent transition-colors hover:bg-accent-hover"
             >
               <LineIcon className="size-5" />
               加 LINE 聊聊
@@ -40,7 +40,7 @@ export default function Contact() {
                 href={`https://www.instagram.com/${profile.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-hairline px-8 py-3 font-medium text-ink transition-colors hover:border-gold hover:text-gold"
+                className="inline-flex items-center rounded-full border border-hairline px-8 py-3 font-medium text-ink transition-colors hover:border-accent hover:text-accent"
               >
                 Instagram
               </a>

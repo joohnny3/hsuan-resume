@@ -18,9 +18,9 @@ export default function Home() {
       <footer className="border-t border-hairline py-10 text-center">
         <p className="font-serif text-sm tracking-[0.25em] text-muted">
           {profile.stageName}
-          <span className="mx-2 italic text-gold">{profile.englishName}</span>
+          <span className="mx-2 italic text-accent">{profile.englishName}</span>
         </p>
-        <p className="mt-2 text-xs text-muted/70">
+        <p className="mt-2 text-xs text-muted-2">
           © {new Date().getFullYear()} {profile.tagline}・專櫃美妝・快閃派樣・典禮接待
         </p>
       </footer>

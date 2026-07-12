@@ -14,21 +14,22 @@ last_update: "2026-07-12"
 conversation:
   date: "2026-07-12"
   thread_n: 1
-  messages_estimate: 45
+  messages_estimate: 30
   health_verdict: "Healthy"
+  note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 3
-  title: "驗證＋狀態同步（完成）"
+  n: 4
+  title: "配色系統 v3：石墨×玫瑰粉（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 2
-  title: "深色奢華 Editorial 重寫"
-  commit: "見 git log（step 2 commit）"
+  n: 3
+  title: "驗證＋狀態同步"
+  commit: "b9a81ea"
   completed_at: "2026-07-12"
 next_step:
-  n: 4
-  title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / M1 微調"
+  n: 5
+  title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
 ---
@@ -38,20 +39,20 @@ blockers: []
 ## 當前狀態
 
 - **Phase**: Phase 1 — Editorial 改版
-- **Module**: M1-editorial-redesign — **已完成（S9）**
+- **Module**: M1-editorial-redesign — **已完成（S9，含 step 4 配色 v3 微調）**
 - **Branch**: main
 - **Last update**: 2026-07-12
 
 ## 當前 Step
 
-- **#3**: 驗證＋狀態同步 — 完成。M1 全部驗收通過（證據在 MINI_SPEC）。
+- **#4**: 配色系統 v3（石墨×玫瑰粉，ADR-007）— 完成。雙主題 token 逐字符合使用者色票，OG/favicon 同步重製。
 
 ## 下一個 Step
 
-- **#4**: 等使用者選擇（S9 不可自動選）：
+- **#5**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
-  - **C. M1 視覺微調**（先看本機預覽）
+  - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
 
 ## Blockers
 
@@ -59,10 +60,12 @@ blockers: []
 
 ## Module Progress
 
-- M1-editorial-redesign: 3 / 3 steps ✅
-- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆）
+- M1-editorial-redesign: 4 / 4 steps ✅（step 4 為 S9 內追加微調）
+- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆／配色 v3 token 驗證）
 
 ## Recent commits（本模組）
 
 - 075217d — step 1: root 化重構與 dev-os lite 實例化
-- (step 2/3 commits 見 git log)
+- cdcea69 — step 2: 深色奢華 editorial 重寫
+- b9a81ea — step 3: 驗收證據回填與狀態同步
+- (step 4 commit 見 git log)

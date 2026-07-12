@@ -83,7 +83,7 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 ## ADR-004：視覺系統 v2——深色奢華 Editorial，預設深色＋象牙日間主題
 
 **日期**：2026-07-12
-**狀態**：Active（推翻同日稍早的「粉嫩甜美 IG 風」決策）
+**狀態**：Active（推翻同日稍早的「粉嫩甜美 IG 風」決策；暖金色票部分 Superseded by ADR-007，主題機制與字型仍有效）
 
 **脈絡**：
 初版粉嫩風上線預覽後，使用者參考 TypeUI「refined」風格要求改為高級感 editorial，並要求日夜雙主題。
@@ -154,6 +154,32 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 - 原始檔與 repo 同層，誤 commit 風險上升（由 gitignore 三重規則＋ADR-001 驗收 grep 緩解）
 
 **影響的模組**：全部
+
+---
+
+## ADR-007：配色系統 v3——石墨×玫瑰粉，雙主題各自色碼
+
+**日期**：2026-07-12
+**狀態**：Active（Supersedes ADR-004 的暖金色票；主題機制、字型、版面不變）
+
+**脈絡**：
+使用者提供完整雙主題色票規格（含 WCAG 對比度依據），要求把暖金識別換成玫瑰粉；並依 Material Design 建議，同一「色彩角色」跨明暗主題使用不同色碼，不強制同色。
+
+**決定**：
+1. Token 角色改名：`gold`→`accent`、`gold-strong`→`accent-hover`；新增 `elevated`（modal／浮動元件）、`muted-2`（非關鍵 metadata）、`accent-soft`（提示背景）、`on-accent`（accent 底上的文字）
+2. Light：canvas `#F7F7F5`／surface `#FFFFFF`／surface-2 `#F0EEEF`／ink `#17171A`／muted `#625D66`／muted-2 `#756E78`／border `#DED9DF`／accent `#C43F6B`（對比 4.58:1，可當一般文字）／hover `#A93259`／soft `#F8E7ED`／on-accent `#FFFFFF`
+3. Dark：canvas `#101116`／surface `#171920`／surface-2 `#20222A`／elevated `#282A33`／ink `#F5F2F4`／muted `#AAA4AC`／muted-2 `#85808A`／border `#31343D`／accent `#F27FA5`（對比約 7.5:1）／hover `#FF9ABB`／soft `#2C1821`／on-accent `#101116`
+4. OG 分享圖與 favicon 同步重製為石墨×玫瑰
+5. 深色仍為預設（ADR-004 的主題機制不變）
+
+**理由**：
+- 玫瑰粉承接品牌識別（Round 1 粉色系）同時保住 editorial 質感
+- 色票已算好對比度：accent 兩主題皆可直接當文字色
+
+**Trade-off**：
+- accent 依主題換色碼，設計稿／截圖需標明所在主題
+
+**影響的模組**：M1 全部元件、OG／favicon
 
 ---
 

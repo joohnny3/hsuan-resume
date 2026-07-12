@@ -14,7 +14,7 @@ export default function BrandWall() {
           {brands.map((name) => (
             <li
               key={name}
-              className="border-l border-hairline pl-4 font-serif text-base tracking-wide text-muted transition-colors hover:border-gold hover:text-gold md:text-lg"
+              className="border-l border-hairline pl-4 font-serif text-base tracking-wide text-muted transition-colors hover:border-accent hover:text-accent md:text-lg"
             >
               {name}
             </li>

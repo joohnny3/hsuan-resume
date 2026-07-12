@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={theme === "dark" ? "切換為日間模式" : "切換為夜間模式"}
-      className="flex size-9 items-center justify-center rounded-full border border-hairline text-muted hover:text-gold hover:border-gold transition-colors"
+      className="flex size-9 items-center justify-center rounded-full border border-hairline text-muted hover:text-accent hover:border-accent transition-colors"
     >
       {theme === "dark" ? (
         /* 太陽:目前深色,點了變日間 */
