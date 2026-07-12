@@ -7,9 +7,6 @@ import { LineIcon } from "./Nav";
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      {/* 背景氛圍:極淡的玫瑰光暈 */}
-      <div className="pointer-events-none absolute -top-32 right-[-10%] size-[28rem] rounded-full bg-accent/10 blur-3xl" />
-
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 pb-20 md:grid-cols-[1.1fr_0.9fr] md:pt-20">
         {/* 文字(手機版照片在上) */}
         <div className="order-2 md:order-1">
