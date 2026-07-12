@@ -91,5 +91,20 @@
   - 載入權重收斂:Noto Serif 400/500/600/700/900+italic、Noto Serif TC 400/600/700/900
 - **驗證**：build exit 0;DOM 實測 body/h1/eyebrow/自介/數字/nav/品牌名 **全部**解析到統一襯線堆疊;`playfairOrSansLoaded=false`;數字 variant=`lining-nums tabular-nums`;console 0 錯誤;無真正殘留舊字型引用
 - **已知環境註記**：預覽截圖管線持續卡死,視覺證據以 computed font-family 為準,實機不受影響
+- **Commit**：`64a4e36`
+- **偏離**：無
+
+---
+
+## Step 8 — Header 簽名呼吸泛粉動畫（2026-07-12）
+
+- **State**：S9 內追加微調（使用者要求＝選項 C）
+- **做了什麼**：
+  - globals 加 `@keyframes sign-shimmer`＋`.sign-shimmer`:6s ease-in-out infinite,background-color 在 `var(--ink)`↔`var(--accent)` 間緩慢呼吸(0/100% ink、45–65% 停在 accent)
+  - 兩端皆用 token → 自動尊重日夜:深色泛 `#F598AF`、日間泛 `#C43F6B`,平時回主題文字色
+  - 加 `prefers-reduced-motion: reduce` → 停動畫(無障礙)
+  - Nav 簽名 span 套 `sign-shimmer`(取代 transition-colors)
+- **驗證**：build exit 0;production CSS 含 `@keyframes sign-shimmer`＋class(4 處);DOM `getAnimations()` 回報 name=sign-shimmer、playState=running、duration=6000、infinite、keyframe 規則存在;light 主題 accent 端點正確翻 `#C43F6B`
+- **已知環境註記**：預覽 renderer 時間軸凍結(`currentTime` 卡 0、截圖 timeout,與本 session 一貫環境問題同源),動畫設定正確,實機瀏覽器會正常播放
 - **Commit**：（本 step commit）
 - **偏離**：無

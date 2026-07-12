@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 7
-  title: "字體系統 v2：全站統一襯線 Noto Serif（完成）"
+  n: 8
+  title: "Header 簽名呼吸泛粉動畫（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 6
-  title: "Dark mode 配色 v4：BLACKPINK 暖黑"
-  commit: "0f3610f"
+  n: 7
+  title: "字體系統 v2：全站統一襯線 Noto Serif"
+  commit: "64a4e36"
   completed_at: "2026-07-12"
 next_step:
-  n: 8
+  n: 9
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#7**: 字體系統 v2 — 完成。全站統一襯線（拉丁 Noto Serif ＋ 中文思源宋,同源）;移除 Playfair 與整支 Noto Sans TC;數字改 lining+tabular 根治高低不平（ADR-009）。
+- **#8**: Header 簽名呼吸泛粉動畫 — 完成。`sign-shimmer` 6s 循環在文字色↔品牌粉間呼吸,兩端用 token 故自動尊重日夜;含 reduced-motion 關閉。
 
 ## 下一個 Step
 
-- **#8**: 等使用者選擇（S9 不可自動選）：
+- **#9**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）

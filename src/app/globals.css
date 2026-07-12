@@ -86,3 +86,27 @@ body {
   background: var(--accent);
   color: var(--on-accent);
 }
+
+/* Header 簽名:緩慢在文字色↔品牌粉之間呼吸。
+   兩端都用 token,故自動尊重日夜(深色泛 #F598AF、日間泛 #C43F6B)。 */
+@keyframes sign-shimmer {
+  0%,
+  100% {
+    background-color: var(--ink);
+  }
+  45%,
+  65% {
+    background-color: var(--accent);
+  }
+}
+
+.sign-shimmer {
+  background-color: var(--ink);
+  animation: sign-shimmer 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sign-shimmer {
+    animation: none;
+  }
+}
