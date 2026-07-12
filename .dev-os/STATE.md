@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 20
-  title: "品牌牆改官網連結＋移除左線（完成）"
+  n: 21
+  title: "新增活動經歷區（條列、去日期）＋nav 第三 icon（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 19
-  title: "精選活動改名＋Hero 照片去框＋nav icon 化 hover 展開"
-  commit: "17c9347"
+  n: 20
+  title: "品牌牆改官網連結＋移除左線"
+  commit: "042fa3a"
   completed_at: "2026-07-12"
 next_step:
-  n: 21
+  n: 22
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#20**: 品牌牆改官網連結 ＋ 移除左線 — 完成。26 個品牌從純文字改為可點擊 `<a>`(新分頁、rel noopener),連到官方網站(來源 taiwan-brand-official-links.md);移除每項左側細線。Console 出現的 duplicate-key/script-tag 錯經查為 Next.js dev 工具 overlay 雜訊(production `out/` 完全不含),非本站程式。
+- **#21**: 新增「活動經歷」區 — 完成。34 筆活動依新→舊排列、**去日期**、條列(accent 圓點)、桌機雙欄;插入於 合作品牌 → 活動經歷 → 精選活動;nav 新增第三 icon(條列)hover 展開「活動經歷」。Doritos 錯字已修;保護貼推廣／ROG GAMEFORCE 待使用者確認。
 
 ## 下一個 Step
 
-- **#21**: 等使用者選擇（S9 不可自動選）：
+- **#22**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）

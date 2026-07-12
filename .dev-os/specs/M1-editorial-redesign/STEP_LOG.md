@@ -276,5 +276,20 @@
   - `BrandWall.tsx`:每個品牌從純文字 `<li>` 改為 `<li><a target="_blank" rel="noopener noreferrer">`;**移除左側細線**(`border-l border-hairline` 與 `pl-4` 拿掉);hover 仍變 accent 色
 - **驗證**：build exit 0;DOM 26 連結全 `target=_blank`＋`rel=noopener noreferrer`、href 全 https、左線 `border-left:0`／`padding-left:0`、品牌名 26 唯一無重複 key;name→url 抽樣正確
 - **Console 錯誤調查(重要)**:預覽出現大量「two children with same key(`[object Object]`)」＋「script tag while rendering」。**判定為 Next.js dev 工具 overlay 的雜訊,非本站程式**——證據:(a) 我方所有 `key=` 皆字串,若是我方 React 會印字串 key 而非 `[object Object]`;(b) grep 全 source 無物件 key、無裸 `<script>`(layout 用 `dangerouslySetInnerHTML`);(c) 攔截 console.error＋HMR 重繪 BrandWall 抓到 0 錯;(d) DOM 載有 `next-devtools` chunk＋`nextjs-portal` overlay(dev 專屬注入);(e) **production `out/` 對 next-devtools／nextjs-portal 參照數皆 0**。→ 部署站乾淨,不影響功能
-- **Commit**：（本 step commit）
+- **Commit**：`042fa3a`
 - **偏離**：無
+
+---
+
+## Step 21 — 新增「活動經歷」區（條列、去日期）＋ nav 第三 icon（2026-07-12）
+
+- **State**：S9 內追加微調（使用者提供活動清單＋參考圖＝選項 C）
+- **做了什麼**：
+  - `profile.ts`:新增 `experiences: string[]`(34 筆),依時間新→舊排列;**日期全部移除**(使用者要求);修正 Doritos 錯字 多力多姿→多力多滋;`保護貼`→`保護貼推廣`、`GAMFORCE`→`GAMEFORCE`(待使用者確認)
+  - 新增 `Experience.tsx`:section id=`experience`,標題「活動經歷」+ 副標;條列式(accent 圓點),桌機 `columns-2`(column-first 依時間往下讀,`break-inside-avoid`),手機單欄
+  - `page.tsx`:插入於 合作品牌 → **活動經歷** → 精選活動 之間
+  - `Nav.tsx`:新增條列 `ListIcon`＋第三連結 `#experience`「活動經歷」(沿用 hover/focus 滑出文字),順序對齊頁面
+- **驗證**：build exit 0;DOM 標題=活動經歷、34 項各有圓點、**殘留日期 0 筆**、section 順序 top→brands→experience→gallery、nav 3 連結 aria-label 正確(合作品牌/活動經歷/精選活動)、桌機 column-count=2(兩欄 x=77/657、第 18 項落右欄);console 僅先前查明之 dev-tools overlay 雜訊
+- **待確認(已於報告標明)**：`保護貼推廣`、`ROG GAMEFORCE`(原字 GAMFORCE);Doritos 已逕修為 多力多滋
+- **Commit**：（本 step commit）
+- **偏離**：新增 nav 項屬功能擴充(使用者未明說但將其列為與合作品牌/精選活動並列的區塊,合理延伸;已報告可要求移除)

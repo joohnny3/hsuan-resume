@@ -65,6 +65,47 @@ export const brands: { name: string; url: string }[] = [
   { name: "台大醫學院", url: "https://www.mc.ntu.edu.tw/" },
 ];
 
+/**
+ * 活動經歷(ADR-005):展場、快閃、遊戲、路跑與典禮等活動推廣。
+ * 依時間新→舊排列,但不顯示日期(使用者要求移除)。新增經歷加一行字串即可。
+ */
+export const experiences: string[] = [
+  "捷元研討會 SG",
+  "苗栗佳餚音樂祭 SG",
+  "保護貼推廣",
+  "ITF 旅展",
+  "能源展（捷星科技）",
+  "長榮航太交機儀式 SG",
+  "Bose 體驗會（大佳河濱）",
+  "昊緣遊戲（黑松沙士）",
+  "劍與遠征遊戲推廣 PG",
+  "Fin 路跑",
+  "漫博展（新北市政府－無名之詩）",
+  "中職明星賽（台北大巨蛋 中華電信）",
+  "夏季旅展（愛玩苗栗）",
+  "夏季加盟展（慶三號）",
+  "台中加盟展（Xpower）",
+  "新莊體育館（曼陀珠）",
+  "新北戰酒黑金龍冬季巡迴車 SG",
+  "籃球瓊斯盃遊戲 PG",
+  "奇動能量飲派發 SG",
+  "ULTRA TAIWAN 音樂祭 SG",
+  "浪 LIVE 富邦勇士籃球 SG",
+  "鴿子茶飲加盟展 SG",
+  "Lay's 西門樂事餅乾派樣 PG",
+  "台北春酒宴會接待",
+  "五股工商展覽館易口舒 PG",
+  "茶飲開幕活動 SG（金剛咖啡茶飲）",
+  "原委會原味餐車 × LIMA 電商平台活動 SG",
+  "球鞋市集 UNO PG",
+  "太空港音樂節 BingX 平台推廣 SG",
+  "三峽經典 90 老車浪 LIVE SG",
+  "宏佳騰智慧電車 SG",
+  "GQ 城市野營 樂事多力多滋派樣 PG",
+  "500%×7-11 永續快閃店 PG",
+  "ROG GAMEFORCE 電競嘉年華 SG",
+];
+
 export const galleryCategories = [
   { key: "all", label: "全部" },
   { key: "exhibition", label: "展場活動" },

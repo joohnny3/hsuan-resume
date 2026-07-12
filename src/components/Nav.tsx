@@ -25,6 +25,27 @@ function BrandTagIcon({ className }: IconProps) {
   );
 }
 
+/** 活動經歷:條列 icon */
+function ListIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M9 6h11M9 12h11M9 18h11" />
+      <circle cx="4.5" cy="6" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 /** 精選活動:相簿 icon */
 function GalleryImageIcon({ className }: IconProps) {
   return (
@@ -47,6 +68,7 @@ function GalleryImageIcon({ className }: IconProps) {
 
 const links = [
   { href: "#brands", label: "合作品牌", Icon: BrandTagIcon },
+  { href: "#experience", label: "活動經歷", Icon: ListIcon },
   { href: "#gallery", label: "精選活動", Icon: GalleryImageIcon },
 ] as const;
 
