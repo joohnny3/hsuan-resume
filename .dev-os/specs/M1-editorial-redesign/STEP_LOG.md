@@ -106,5 +106,21 @@
   - Nav 簽名 span 套 `sign-shimmer`(取代 transition-colors)
 - **驗證**：build exit 0;production CSS 含 `@keyframes sign-shimmer`＋class(4 處);DOM `getAnimations()` 回報 name=sign-shimmer、playState=running、duration=6000、infinite、keyframe 規則存在;light 主題 accent 端點正確翻 `#C43F6B`
 - **已知環境註記**：預覽 renderer 時間軸凍結(`currentTime` 卡 0、截圖 timeout,與本 session 一貫環境問題同源),動畫設定正確,實機瀏覽器會正常播放
+- **Commit**：`3663ab3`
+- **偏離**：無
+
+---
+
+## Step 9 — 簽名改為「由左到右填滿粉色」（修正 step 8）（2026-07-12）
+
+- **State**：S9 內追加微調（使用者澄清 step 8 誤會＝選項 C）
+- **使用者澄清**：step 8 的「整體呼吸脈動」理解錯了;要的是粉色**由左到右把簽名填滿**,像簽名筆跡刷過。
+- **做了什麼**：
+  - `sign-shimmer` → `sign-fill`:改用「粉|墨」硬邊漸層(`linear-gradient(to right, accent 49%, ink 51%)`)＋`background-size:200%`,動 `background-position` 100%→0% 讓粉墨邊界左→右掃過;遮罩仍裁成簽名形狀
+  - `2.2s ease-out 0.35s both`:載入時填一次、停在滿粉(forwards)
+  - 兩端綁 token → 日夜自動:深色滿 `#F598AF`、日間滿 `#C43F6B`;reduced-motion 直接靜態滿粉
+  - Nav span class 改 `sign-fill`(移除 bg-ink,改由漸層上色)
+- **驗證**：build exit 0;output CSS `sign-fill`=1、`sign-shimmer`=0;DOM getAnimations name=sign-fill/running/2200ms/delay350/fill both;bgImage=accent|ink 漸層、size 200%、mask 仍在;日間漸層端點正確翻 `#C43F6B`|`#17171A`
+- **已知環境註記**：預覽 renderer 時間軸凍結,填色動畫無法在此播放,設定正確、實機正常
 - **Commit**：（本 step commit）
 - **偏離**：無

@@ -21,7 +21,7 @@ export default function Nav() {
         >
           <span
             aria-hidden
-            className="sign-shimmer block h-9 w-24 bg-ink"
+            className="sign-fill block h-9 w-24"
             style={{
               maskImage: `url(${sign})`,
               WebkitMaskImage: `url(${sign})`,

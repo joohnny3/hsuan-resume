@@ -87,26 +87,35 @@ body {
   color: var(--on-accent);
 }
 
-/* Header 簽名:緩慢在文字色↔品牌粉之間呼吸。
-   兩端都用 token,故自動尊重日夜(深色泛 #F598AF、日間泛 #C43F6B)。 */
-@keyframes sign-shimmer {
-  0%,
-  100% {
-    background-color: var(--ink);
+/* Header 簽名:載入時粉色由左到右「簽」滿,像簽名筆跡刷過。
+   手法:兩倍寬的「粉|墨」硬邊漸層,動 background-position 讓粉墨邊界左→右掃過;
+   遮罩把它裁成簽名形狀;fill-mode forwards → 停在滿粉。
+   兩端綁 token,故自動尊重日夜(深色滿 #F598AF、日間滿 #C43F6B)。 */
+@keyframes sign-fill {
+  from {
+    background-position: 100% 0;
   }
-  45%,
-  65% {
-    background-color: var(--accent);
+  to {
+    background-position: 0 0;
   }
 }
 
-.sign-shimmer {
-  background-color: var(--ink);
-  animation: sign-shimmer 6s ease-in-out infinite;
+.sign-fill {
+  background-color: var(--accent);
+  background-image: linear-gradient(
+    to right,
+    var(--accent) 49%,
+    var(--ink) 51%
+  );
+  background-size: 200% 100%;
+  background-position: 0 0;
+  animation: sign-fill 2.2s ease-out 0.35s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sign-shimmer {
+  .sign-fill {
     animation: none;
+    background-image: none;
+    background-color: var(--accent);
   }
 }
