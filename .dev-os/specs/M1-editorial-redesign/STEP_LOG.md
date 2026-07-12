@@ -122,5 +122,21 @@
   - Nav span class 改 `sign-fill`(移除 bg-ink,改由漸層上色)
 - **驗證**：build exit 0;output CSS `sign-fill`=1、`sign-shimmer`=0;DOM getAnimations name=sign-fill/running/2200ms/delay350/fill both;bgImage=accent|ink 漸層、size 200%、mask 仍在;日間漸層端點正確翻 `#C43F6B`|`#17171A`
 - **已知環境註記**：預覽 renderer 時間軸凍結,填色動畫無法在此播放,設定正確、實機正常
+- **Commit**：`d10ed52`
+- **偏離**：無
+
+---
+
+## Step 10 — 簽名填色改為 hover 觸發(連結 affordance)（修正 step 9）（2026-07-12）
+
+- **State**：S9 內追加微調（使用者澄清＝選項 C）
+- **使用者澄清**：填色不是載入自動播,是**滑鼠移上(hover)才由左到右填粉**,用來提示「這是可點的 `<a>` 連結」;**滑鼠一離開就退回**。
+- **做了什麼**：
+  - `sign-fill` 由「載入 animation」改成「hover transition」:常態 `background-position:100% 0`(墨色),`.sign-link:hover/​:focus-visible .sign-fill` → `0 0`(粉色填滿),`transition: background-position .55s`
+  - 觸發掛在外層 `<a>`(加 class `sign-link`),整個連結區都算;`:focus-visible` 讓鍵盤 focus 也觸發(無障礙)
+  - reduced-motion:保留變色、去掉滑動
+  - 移除舊 `@keyframes sign-fill`
+- **驗證**：build exit 0;output CSS 含 `.sign-link:hover .sign-fill{background-position:0 0}`、無殘留 keyframes;DOM 常態 `background-position:100% 0px`、`transition:background-position .55s`、`animationName:none`、`<a>` 有 sign-link、mask 仍在、hover 規則存在;日間漸層端點 `#C43F6B`|`#17171A`(前步已驗)
+- **已知環境註記**：預覽 renderer 凍結無法實地 hover 觀察,規則結構已確認,實機正常
 - **Commit**：（本 step commit）
 - **偏離**：無

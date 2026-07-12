@@ -87,35 +87,28 @@ body {
   color: var(--on-accent);
 }
 
-/* Header 簽名:載入時粉色由左到右「簽」滿,像簽名筆跡刷過。
-   手法:兩倍寬的「粉|墨」硬邊漸層,動 background-position 讓粉墨邊界左→右掃過;
-   遮罩把它裁成簽名形狀;fill-mode forwards → 停在滿粉。
-   兩端綁 token,故自動尊重日夜(深色滿 #F598AF、日間滿 #C43F6B)。 */
-@keyframes sign-fill {
-  from {
-    background-position: 100% 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-
+/* Header 簽名是連結(<a>):滑鼠移上→粉色由左到右填滿(暗示可點),移開→退回墨色。
+   手法:兩倍寬「粉|墨」硬邊漸層,靠 :hover 切換 background-position 讓交界左→右掃過;
+   遮罩把它裁成簽名形狀。漸層兩端綁 token,故日夜自動(深色填 #F598AF、日間填 #C43F6B)。 */
 .sign-fill {
-  background-color: var(--accent);
+  background-color: var(--ink);
   background-image: linear-gradient(
     to right,
     var(--accent) 49%,
     var(--ink) 51%
   );
   background-size: 200% 100%;
-  background-position: 0 0;
-  animation: sign-fill 2.2s ease-out 0.35s both;
+  background-position: 100% 0; /* 常態:墨色 */
+  transition: background-position 0.55s ease;
+}
+
+.sign-link:hover .sign-fill,
+.sign-link:focus-visible .sign-fill {
+  background-position: 0 0; /* 觸發:粉色由左到右填滿 */
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sign-fill {
-    animation: none;
-    background-image: none;
-    background-color: var(--accent);
+    transition: none; /* 仍會變粉,只是不滑動 */
   }
 }

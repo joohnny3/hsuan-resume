@@ -17,7 +17,7 @@ export default function Nav() {
         <a
           href="#top"
           aria-label={`${profile.stageName} ${profile.englishName}`}
-          className="flex items-center"
+          className="sign-link flex items-center"
         >
           <span
             aria-hidden

@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 9
-  title: "簽名改為由左到右填滿粉色（修正 step 8）（完成）"
+  n: 10
+  title: "簽名填色改 hover 觸發（連結提示）（修正 step 9）（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 8
-  title: "Header 簽名呼吸泛粉動畫（被 step 9 修正）"
-  commit: "3663ab3"
+  n: 9
+  title: "簽名由左到右填滿粉色（被 step 10 改為 hover 觸發）"
+  commit: "d10ed52"
   completed_at: "2026-07-12"
 next_step:
-  n: 10
+  n: 11
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#9**: 簽名填色動畫（修正 step 8）— 完成。粉色由左到右把簽名填滿(`sign-fill` 漸層掃過,2.2s 停滿粉);兩端 token 故日夜自動;含 reduced-motion 靜態滿粉。
+- **#10**: 簽名填色改 hover 觸發（修正 step 9）— 完成。常態墨色;滑鼠移上/鍵盤 focus → 粉色由左到右填滿(0.55s),離開退回,提示這是可點連結;日夜自動;reduced-motion 保留變色去滑動。
 
 ## 下一個 Step
 
-- **#10**: 等使用者選擇（S9 不可自動選）：
+- **#11**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
