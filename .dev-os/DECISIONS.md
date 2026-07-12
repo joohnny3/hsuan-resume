@@ -183,6 +183,35 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 
 ---
 
+## ADR-008：Dark mode 配色 v4——BLACKPINK 暖黑×標誌粉
+
+**日期**：2026-07-12
+**狀態**：Active（Supersedes ADR-007 的 **dark** 色票；light 色票不變、主題機制與字型不變）
+
+**脈絡**：
+使用者提供一套更完整的 dark palette(暖近黑＋BLACKPINK 標誌粉)，並補齊三個先前沒有的色彩角色：Pure Black 分區背景、Accent Strong、Border Hover。只調整夜間,日間維持 ADR-007。
+
+**決定**：
+1. 新增三個 token 角色(含 light 對應值,使兩主題皆可用)：
+   - `--canvas-deep`(Pure Black,dark `#000000`／light `#f7f7f5`)：套用於 Hero 與 Footer,與 `--canvas` 頁面底做分區
+   - `--accent-strong`(dark `#EE6F91`／light `#A93259`)：小範圍高強度狀態備用
+   - `--hairline-hover`(dark `#835062`／light `#c4a7b0`)：邊框 hover 備用
+2. Dark 既有 token 全面改值：canvas `#0B0A0B`／surface `#161216`／surface-2 `#211A1E`／elevated `#2A2025`／ink `#F8F3F5`／muted `#D6C9CE`／muted-2 `#A78F99`／hairline `#3A2930`／accent `#F598AF`／accent-hover `#FFB0C1`／accent-soft `#321A22`／on-accent `#101010`／overlay `rgba(0,0,0,.6)`
+3. `viewport.themeColor` 改 `#0B0A0B`；OG 分享圖＋favicon 重製為純黑底＋標誌粉(v4 腳本)
+4. `--accent-strong`／`--hairline-hover` 已定義並掛進 `@theme inline`(可用 `bg-accent-strong`／`border-hairline-hover`),目前保留備用、未強制套用到既有 hover(既有 hover 仍走 accent,視覺較醒目)
+
+**理由**：
+- 暖黑(帶紅微量)比冷石墨更貼合粉色品牌、照片在純黑 Hero 上更跳
+- 補齊角色讓 token 系統與使用者規格對齊,日後可直接引用
+
+**Trade-off**：
+- Hero/Footer 純黑與頁面 `#0B0A0B` 差異極細微(刻意的分區,肉眼近乎一致)
+- 兩個備用 token 目前未被消費(有意保留)
+
+**影響的模組**：M1 dark 呈現、OG／favicon
+
+---
+
 ## 待補的 ADR（rolling list）
 
 - [ ] 自訂網域方案（觸發：使用者購買網域時）

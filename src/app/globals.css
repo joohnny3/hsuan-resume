@@ -1,28 +1,32 @@
 @import "tailwindcss";
 
-/* ---- 主題 token(ADR-004 主題系統/ADR-007 配色 v3)----
+/* ---- 主題 token(ADR-004 主題系統/ADR-007 配色 v3/ADR-008 dark v4)----
    深色為預設;[data-theme="light"] 切暖白日間。
-   配色系統 v3:石墨×玫瑰粉(2026-07-12 使用者定案色票)。
+   Dark = BLACKPINK 暖黑×標誌粉(ADR-008,2026-07-12);Light = 石墨×玫瑰粉(ADR-007,不變)。
    同一「色彩角色」跨明暗主題使用不同色碼(Material Design 建議),
    元件一律用語意色(canvas/surface/ink/muted/accent/hairline),不要硬編色碼。 */
 :root,
 [data-theme="dark"] {
-  --canvas: #101116; /* Page Background */
-  --surface: #171920; /* Primary Surface:卡片、Navbar */
-  --surface-2: #20222a; /* Secondary Surface:次層區域、hover */
-  --elevated: #282a33; /* Elevated Surface:modal、浮動元件 */
-  --ink: #f5f2f4; /* Primary Text */
-  --muted: #aaa4ac; /* Secondary Text */
-  --muted-2: #85808a; /* Muted Text:非關鍵 metadata */
-  --hairline: #31343d; /* Border */
-  --accent: #f27fa5; /* Accent Pink:深底用亮玫瑰(對比約 7.5:1) */
-  --accent-hover: #ff9abb; /* Hover / Active */
-  --accent-soft: #2c1821; /* 深酒紅提示背景 */
-  --on-accent: #101116; /* 粉色按鈕上的文字 */
-  --overlay: rgba(16, 17, 22, 0.55);
+  --canvas-deep: #000000; /* Pure Black:Hero、Footer 主要視覺背景 */
+  --canvas: #0b0a0b; /* Page Background */
+  --surface: #161216; /* Primary Surface:卡片、Navbar */
+  --surface-2: #211a1e; /* Secondary Surface:hover、側欄 */
+  --elevated: #2a2025; /* Elevated Surface:modal、dropdown */
+  --ink: #f8f3f5; /* Primary Text */
+  --muted: #d6c9ce; /* Secondary Text */
+  --muted-2: #a78f99; /* Muted Text */
+  --hairline: #3a2930; /* Border */
+  --hairline-hover: #835062; /* Border Hover */
+  --accent: #f598af; /* BLACKPINK Pink:品牌主色 */
+  --accent-hover: #ffb0c1; /* Hover / Active */
+  --accent-strong: #ee6f91; /* Accent Strong:小範圍高強度狀態 */
+  --accent-soft: #321a22; /* 粉紅標籤背景 */
+  --on-accent: #101010; /* 粉色按鈕上的文字 */
+  --overlay: rgba(0, 0, 0, 0.6);
 }
 
 [data-theme="light"] {
+  --canvas-deep: #f7f7f5; /* 日間不做純黑分區,等同 canvas */
   --canvas: #f7f7f5;
   --surface: #ffffff;
   --surface-2: #f0eeef;
@@ -31,14 +35,17 @@
   --muted: #625d66;
   --muted-2: #756e78;
   --hairline: #ded9df;
+  --hairline-hover: #c4a7b0;
   --accent: #c43f6b; /* 暖白底用深玫瑰(對比約 4.58:1,可當一般文字) */
   --accent-hover: #a93259;
+  --accent-strong: #a93259;
   --accent-soft: #f8e7ed;
   --on-accent: #ffffff;
   --overlay: rgba(23, 23, 26, 0.45);
 }
 
 @theme inline {
+  --color-canvas-deep: var(--canvas-deep);
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -47,8 +54,10 @@
   --color-muted: var(--muted);
   --color-muted-2: var(--muted-2);
   --color-hairline: var(--hairline);
+  --color-hairline-hover: var(--hairline-hover);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
   --color-overlay: var(--overlay);

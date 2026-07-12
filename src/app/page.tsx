@@ -15,7 +15,7 @@ export default function Home() {
         <Gallery />
         <Contact />
       </main>
-      <footer className="border-t border-hairline py-10 text-center">
+      <footer className="border-t border-hairline bg-canvas-deep py-10 text-center">
         <p className="font-serif text-sm tracking-[0.25em] text-muted">
           {profile.stageName}
           <span className="mx-2 italic text-accent">{profile.englishName}</span>

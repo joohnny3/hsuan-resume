@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#101116",
+  themeColor: "#0b0a0b",
 };
 
 /** 防 FOUC:hydration 前先從 localStorage 套用主題(預設深色,ADR-004)。 */

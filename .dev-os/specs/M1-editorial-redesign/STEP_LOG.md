@@ -59,5 +59,21 @@
   - Header 文字 logo「瑄瑄 HSUAN」換成使用者提供的簽名檔:`hsuuan-sign.svg` 由 root 搬進 `public/`＋收緊 viewBox(`220 47 630 242`,去除四周大量留白);用 CSS mask＋`bg-ink` 呈現,純黑簽名改由 alpha 遮罩上主題 ink 色,深色近白/日間近黑皆清晰
   - 移除 header 的「LINE 邀約」按鈕(Hero 與 邀約區的 LINE CTA 保留);`LineIcon` export 仍在(Hero/Contact 使用)
 - **驗證**：build exit 0；`out/hsuuan-sign.svg` 已輸出；DOM 確認 header 無 line.me 按鈕、logo mask 尺寸 96×36、bg 隨主題翻色；雙主題截圖簽名皆可見；console 0 錯誤
+- **Commit**：`a546eff`
+- **偏離**：無
+
+---
+
+## Step 6 — Dark mode 配色 v4：BLACKPINK 暖黑（2026-07-12）
+
+- **State**：S9 內追加微調（使用者提供新 dark 色票＝選項 C，只動夜間）
+- **做了什麼**：
+  - 依使用者完整 dark palette 重寫 token(ADR-008):暖近黑 `#0B0A0B`＋BLACKPINK 粉 `#F598AF`＋暖粉調文字/邊框;on-accent `#101010`
+  - 新增三個色彩角色 token(含 light 對應值):`--canvas-deep`(Hero/Footer 純黑分區)、`--accent-strong`、`--hairline-hover`,掛進 `@theme inline`
+  - Hero 與 Footer 套 `bg-canvas-deep`(純黑),與頁面 `#0B0A0B` 做細微分區;themeColor 改 `#0B0A0B`
+  - OG 分享圖＋favicon 重製為純黑底＋標誌粉(v4 腳本)
+  - **只改 dark;light(ADR-007)完全不動**
+- **驗證**：build exit 0；DOM 逐字比對 15 個 token 全符合色票、Hero/Footer `rgb(0,0,0)`、body `#0B0A0B`；console 0 錯誤；舊 dark 色碼 src 殘留 0 筆
+- **已知環境註記**：本 session 預覽截圖管線再度卡死,視覺證據以 computed token 為準,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無
