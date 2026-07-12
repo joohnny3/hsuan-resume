@@ -1,6 +1,6 @@
 /**
  * 網站所有內容的單一資料來源(ADR-003/ADR-005)。
- * 新增品牌:brands 加一個名字。新增照片:壓 WebP 進 public/photos/ 後在 photos 加一筆。
+ * 新增品牌:brands 加一筆 { name, url }。新增照片:壓 WebP 進 public/photos/ 後在 photos 加一筆。
  * 鐵則:電話號碼與原始 PDF 不得出現在這個 repo(ADR-001)。
  */
 
@@ -31,34 +31,38 @@ export const profile = {
   instagram: "__h_s_u_a_n__",
 } as const;
 
-/** 品牌字牆(ADR-005):合作過的品牌與活動主辦,無日期。導言的場次數見 BrandWall。 */
-export const brands: string[] = [
-  "LANCÔME 蘭蔻",
-  "M·A·C",
-  "SK-II",
-  "SOFINA",
-  "ELEMIS",
-  "DRUNK ELEPHANT",
-  "ROG 玩家共和國",
-  "中華電信",
-  "臺灣鐵路",
-  "捷元 GENUINE",
-  "宏佳騰 Ai-2",
-  "BingX",
-  "浪 LIVE",
-  "富邦勇士",
-  "GQ TAIWAN",
-  "Lay's 樂事",
-  "多力多滋",
-  "黑松",
-  "易口舒",
-  "7-ELEVEN",
-  "全家便利商店",
-  "全聯福利中心",
-  "Häagen-Dazs",
-  "foodpanda",
-  "金剛咖啡",
-  "台大醫學院",
+/**
+ * 品牌字牆(ADR-005):合作過的品牌與活動主辦,無日期。導言的場次數見 BrandWall。
+ * url = 台灣官方網站／官方品牌頁／官方社群(來源:taiwan-brand-official-links.md)。
+ * 點擊於新分頁開啟。金剛咖啡無官網,以官方 FB 為主要管道。
+ */
+export const brands: { name: string; url: string }[] = [
+  { name: "LANCÔME 蘭蔻", url: "https://www.lancome.com.tw/" },
+  { name: "M·A·C", url: "https://www.maccosmetics.com.tw/" },
+  { name: "SK-II", url: "https://sk-ii.com.tw/" },
+  { name: "SOFINA", url: "https://web.sofina.com/tw/" },
+  { name: "ELEMIS", url: "https://www.elemis.com.tw/" },
+  { name: "DRUNK ELEPHANT", url: "https://www.beautystage.com.tw/brand/3541" },
+  { name: "ROG 玩家共和國", url: "https://rog.asus.com/tw/" },
+  { name: "中華電信", url: "https://www.cht.com.tw/home/consumer" },
+  { name: "臺灣鐵路", url: "https://www.railway.gov.tw/" },
+  { name: "捷元 GENUINE", url: "https://www.genuine.com.tw/" },
+  { name: "宏佳騰 Ai-2", url: "https://www.aeontek-motor.com.tw/pages/ai2-gather" },
+  { name: "BingX", url: "https://bingx.com/zh-tc" },
+  { name: "浪 LIVE", url: "https://www.lang.live/" },
+  { name: "富邦勇士", url: "https://www.fubonbraves.com/" },
+  { name: "GQ TAIWAN", url: "https://www.gq.com.tw/" },
+  { name: "Lay's 樂事", url: "https://www.lays.com.tw/" },
+  { name: "多力多滋", url: "https://www.doritos.com.tw/" },
+  { name: "黑松", url: "https://www.heysong.com.tw/" },
+  { name: "易口舒", url: "https://www.eclipse.com.tw/" },
+  { name: "7-ELEVEN", url: "https://www.7-11.com.tw/" },
+  { name: "全家便利商店", url: "https://www.family.com.tw/Marketing/zh" },
+  { name: "全聯福利中心", url: "https://www.pxmart.com.tw/" },
+  { name: "Häagen-Dazs", url: "https://www.haagen-dazs.com.tw/" },
+  { name: "foodpanda", url: "https://www.foodpanda.com.tw/" },
+  { name: "金剛咖啡", url: "https://www.facebook.com/kingkongcoffeetea/" },
+  { name: "台大醫學院", url: "https://www.mc.ntu.edu.tw/" },
 ];
 
 export const galleryCategories = [

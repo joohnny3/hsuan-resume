@@ -263,5 +263,18 @@
   - Nav:「品牌／作品」兩個**文字連結改 icon**(新增 `BrandTagIcon` 標籤／`GalleryImageIcon` 相簿,沿用既有 outline 風格);**hover 或鍵盤 focus-visible 才滑出文字**「合作品牌」「精選活動」(常態 `max-w-0 opacity-0`,`group-hover`/`group-focus-visible` 展開至 `max-w-[6rem] opacity-100 ml-2`,`transition-all 300ms`,含 `motion-reduce:transition-none`);`aria-label` 保可及名稱
 - **驗證**：build exit 0;DOM galleryTitle=精選活動、heroFrameRemoved=true(img class 剩 rounded-3xl object-cover shadow-2xl)、nav 兩連結各有 svg／aria-label 正確／常態 max-width:0 opacity:0;a11y tree 連結名=合作品牌／精選活動;**真實 hover＋暫關 transition 實測 span max-width:96px・opacity:1・ml:8px・字寬 56px(展開有效)**;編譯 CSS 含 group-hover/group-focus-visible 的 max-width:6rem 規則;console 0 錯
 - **已知環境註記**:預覽 compositor 凍結 → transition 停在第 0 幀,故常態讀 hover 值仍為 0;關掉 transition 後即證實規則生效。實機(hover:hover 環境,本預覽 matchMedia 亦回報 true)平滑展開
+- **Commit**：`17c9347`
+- **偏離**：無
+
+---
+
+## Step 20 — 品牌牆改官網連結 ＋ 移除左線（2026-07-12）
+
+- **State**：S9 內追加微調（使用者提供 taiwan-brand-official-links.md＝選項 C）
+- **做了什麼**：
+  - `profile.ts`:`brands` 由 `string[]` 改為 `{ name, url }[]`,26 個品牌全對上官方連結(來源 `taiwan-brand-official-links.md`);金剛咖啡無官網→官方 FB;DRUNK ELEPHANT→beautystage 品牌頁
+  - `BrandWall.tsx`:每個品牌從純文字 `<li>` 改為 `<li><a target="_blank" rel="noopener noreferrer">`;**移除左側細線**(`border-l border-hairline` 與 `pl-4` 拿掉);hover 仍變 accent 色
+- **驗證**：build exit 0;DOM 26 連結全 `target=_blank`＋`rel=noopener noreferrer`、href 全 https、左線 `border-left:0`／`padding-left:0`、品牌名 26 唯一無重複 key;name→url 抽樣正確
+- **Console 錯誤調查(重要)**:預覽出現大量「two children with same key(`[object Object]`)」＋「script tag while rendering」。**判定為 Next.js dev 工具 overlay 的雜訊,非本站程式**——證據:(a) 我方所有 `key=` 皆字串,若是我方 React 會印字串 key 而非 `[object Object]`;(b) grep 全 source 無物件 key、無裸 `<script>`(layout 用 `dangerouslySetInnerHTML`);(c) 攔截 console.error＋HMR 重繪 BrandWall 抓到 0 錯;(d) DOM 載有 `next-devtools` chunk＋`nextjs-portal` overlay(dev 專屬注入);(e) **production `out/` 對 next-devtools／nextjs-portal 參照數皆 0**。→ 部署站乾淨,不影響功能
 - **Commit**：（本 step commit）
 - **偏離**：無

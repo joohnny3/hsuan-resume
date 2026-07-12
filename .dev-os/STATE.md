@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 19
-  title: "精選活動改名＋Hero 照片去框＋nav icon 化 hover 展開（完成）"
+  n: 20
+  title: "品牌牆改官網連結＋移除左線（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 18
-  title: "品牌／照片區標題文案調整＋移除照片分類篩選"
-  commit: "b72e7d1"
+  n: 19
+  title: "精選活動改名＋Hero 照片去框＋nav icon 化 hover 展開"
+  commit: "17c9347"
   completed_at: "2026-07-12"
 next_step:
-  n: 20
+  n: 21
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#19**: 精選活動改名 ＋ Hero 照片去框 ＋ nav icon 化 — 完成。Gallery 標題「活動照片」→「精選活動」;Hero 形象照移除淡粉外框;nav「品牌／作品」改 icon(標籤／相簿),hover 或鍵盤 focus 才滑出文字「合作品牌」「精選活動」。實測 hover 展開有效(關 transition 後 max-width 96px)。
+- **#20**: 品牌牆改官網連結 ＋ 移除左線 — 完成。26 個品牌從純文字改為可點擊 `<a>`(新分頁、rel noopener),連到官方網站(來源 taiwan-brand-official-links.md);移除每項左側細線。Console 出現的 duplicate-key/script-tag 錯經查為 Next.js dev 工具 overlay 雜訊(production `out/` 完全不含),非本站程式。
 
 ## 下一個 Step
 
-- **#20**: 等使用者選擇（S9 不可自動選）：
+- **#21**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
