@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 15
-  title: "footer slim bar ＋ Hero 聯絡復原 ＋ nav 去邀約（完成）"
+  n: 16
+  title: "聯絡列抽共用元件、統一順序與文字（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 14
-  title: "聯絡收斂進 footer ＋ 開發者署名"
-  commit: "58db011"
+  n: 15
+  title: "footer slim bar ＋ Hero 聯絡復原 ＋ nav 去邀約"
+  commit: "143cd39"
   completed_at: "2026-07-12"
 next_step:
-  n: 16
+  n: 17
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#15**: footer slim bar — 完成。footer 去品牌/快速連結欄,聯絡資訊改橫向＋copyright 同列;Hero 聯絡列復原(信箱/LINE/IG);nav 移除「邀約」。
+- **#16**: 聯絡列共用元件 — 完成。抽 `ContactLinks`,Hero 與 footer 共用;順序統一 IG→LINE→信箱;文字 Instagram/LINE@Hsuan/email。
 
 ## 下一個 Step
 
-- **#16**: 等使用者選擇（S9 不可自動選）：
+- **#17**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）

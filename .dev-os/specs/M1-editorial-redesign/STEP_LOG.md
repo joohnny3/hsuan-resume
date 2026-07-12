@@ -205,5 +205,19 @@
   - Nav:移除「邀約」連結(留 品牌／作品);footer 仍掛 id=contact(無 nav 連結指向,無妨)
 - **驗證**：build exit 0;DOM nav=品牌/作品、Hero 聯絡列三連結、footer 橫向三連結＋copyright 同列(flex-row)、無品牌/快速連結欄與欄標題;console 0 錯
 - **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
+- **Commit**：`143cd39`
+- **偏離**：無
+
+---
+
+## Step 16 — 聯絡列抽共用元件、統一順序與文字（2026-07-12）
+
+- **State**：S9 內追加微調（使用者要求 Hero 與 footer 一致）
+- **做了什麼**：
+  - 新增 `ContactLinks.tsx` 共用元件,Hero 與 Footer 都改用它 → 順序/文字/icon 由單一來源保證一致
+  - 順序統一:**IG → LINE → 信箱**;顯示文字:**Instagram** / **LINE@Hsuan** / **aso86012000@yahoo.com**(LINE 由原「邀約」「1012251」統一為「LINE@Hsuan」;href 仍為加好友 URL ~1012251)
+  - Hero／Footer 移除各自重複的聯絡列程式碼
+- **驗證**：build exit 0;DOM heroOrder===footerOrder(逐字相同,identical:true);href IG/line.me/mailto 正確;console 0 錯
+- **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無
