@@ -138,5 +138,15 @@
   - 移除舊 `@keyframes sign-fill`
 - **驗證**：build exit 0;output CSS 含 `.sign-link:hover .sign-fill{background-position:0 0}`、無殘留 keyframes;DOM 常態 `background-position:100% 0px`、`transition:background-position .55s`、`animationName:none`、`<a>` 有 sign-link、mask 仍在、hover 規則存在;日間漸層端點 `#C43F6B`|`#17171A`(前步已驗)
 - **已知環境註記**：預覽 renderer 凍結無法實地 hover 觀察,規則結構已確認,實機正常
+- **Commit**：`382ac8f`
+- **偏離**：無
+
+---
+
+## Step 11 — 簽名填色放慢＋填/退不對稱（微調 step 10）（2026-07-12）
+
+- **State**：S9 內追加微調（使用者:填色太快）
+- **做了什麼**：hover 填色 `transition-duration` 0.55s → **1.4s**(慢、像慢慢簽);離開退回維持 **0.5s**(快、不拖泥帶水)。手法:base 放退回時長,`:hover` 規則只覆寫 `transition-duration`
+- **驗證**：build exit 0;DOM 常態 duration 0.5s、hover 規則 duration 1.4s;output CSS 含 `transition-duration:1.4s`
 - **Commit**：（本 step commit）
 - **偏離**：無

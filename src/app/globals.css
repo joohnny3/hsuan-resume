@@ -99,12 +99,13 @@ body {
   );
   background-size: 200% 100%;
   background-position: 100% 0; /* 常態:墨色 */
-  transition: background-position 0.55s ease;
+  transition: background-position 0.5s ease; /* 離開退回:較快 */
 }
 
 .sign-link:hover .sign-fill,
 .sign-link:focus-visible .sign-fill {
   background-position: 0 0; /* 觸發:粉色由左到右填滿 */
+  transition-duration: 1.4s; /* 移上填滿:放慢,像慢慢簽名 */
 }
 
 @media (prefers-reduced-motion: reduce) {
