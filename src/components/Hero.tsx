@@ -4,6 +4,51 @@ import { heroPhoto, profile } from "@/data/profile";
 import { asset } from "@/lib/site";
 import ContactLinks from "./ContactLinks";
 
+type IconProps = { className?: string };
+const svgBase = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.6,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true,
+};
+
+/** 身高:上下箭頭量高 */
+function HeightIcon({ className }: IconProps) {
+  return (
+    <svg {...svgBase} className={className}>
+      <path d="M12 4v16" />
+      <path d="M8.5 6.5 12 3l3.5 3.5" />
+      <path d="M8.5 17.5 12 21l3.5-3.5" />
+    </svg>
+  );
+}
+
+/** 體重:量測儀表 */
+function WeightIcon({ className }: IconProps) {
+  return (
+    <svg {...svgBase} className={className}>
+      <circle cx="12" cy="13" r="8" />
+      <path d="M12 5.5V7" />
+      <path d="m12 13 3.5-3.5" />
+    </svg>
+  );
+}
+
+/** 三圍:量尺刻度 */
+function MeasureIcon({ className }: IconProps) {
+  return (
+    <svg {...svgBase} className={className}>
+      <rect x="3" y="9" width="18" height="6" rx="1.5" />
+      <path d="M7.5 9v2.5M12 9v3M16.5 9v2.5" />
+    </svg>
+  );
+}
+
+const statIcons = [HeightIcon, WeightIcon, MeasureIcon];
+
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-canvas-deep">
@@ -30,19 +75,26 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* 數據列:細線分隔 */}
-          <dl className="mt-8 flex max-w-md divide-x divide-hairline border-y border-hairline">
-            {profile.stats.map((s) => (
-              <div key={s.label} className="flex-1 px-4 py-4 text-center first:pl-0 md:text-left">
-                <dt className="text-[11px] uppercase tracking-[0.2em] text-muted">
-                  {s.label}
-                </dt>
-                <dd className="mt-1.5 font-serif text-lg font-semibold tabular-nums lining-nums text-accent">
-                  {s.value}
-                  {s.unit && <span className="ml-0.5 text-xs text-muted">{s.unit}</span>}
-                </dd>
-              </div>
-            ))}
+          {/* 數據列:icon 方塊 + 標籤 + 數值(橫列,無單位) */}
+          <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
+            {profile.stats.map((s, i) => {
+              const Icon = statIcons[i];
+              return (
+                <div key={s.label} className="flex items-center gap-3">
+                  <span className="flex size-11 items-center justify-center rounded-xl border border-hairline bg-surface-2 text-accent">
+                    <Icon className="size-5" />
+                  </span>
+                  <div>
+                    <dt className="text-[11px] tracking-[0.15em] text-muted">
+                      {s.label}
+                    </dt>
+                    <dd className="font-serif text-lg font-semibold tabular-nums lining-nums text-accent">
+                      {s.value}
+                    </dd>
+                  </div>
+                </div>
+              );
+            })}
           </dl>
 
           {/* 聯絡列(共用元件:順序 IG→LINE→信箱,與 footer 一致) */}

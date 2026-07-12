@@ -219,5 +219,19 @@
   - Hero／Footer 移除各自重複的聯絡列程式碼
 - **驗證**：build exit 0;DOM heroOrder===footerOrder(逐字相同,identical:true);href IG/line.me/mailto 正確;console 0 錯
 - **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
+- **Commit**：`514b1d6`
+- **偏離**：無
+
+---
+
+## Step 17 — 數據列改 icon 卡片式（橫列、無單位）（2026-07-12）
+
+- **State**：S9 內追加微調（使用者提供圖二參考＝選項 C）
+- **做了什麼**：
+  - Hero 數據列由「細線分隔三欄」改為圖二式「icon 方塊＋標籤＋數值」,維持**橫列**(flex-wrap)
+  - 每項:圓角 icon 方塊(bg-surface-2＋accent icon)＋標籤(身高)＋數值(165);新增 3 個 outline icon(HeightIcon／WeightIcon／MeasureIcon,依 index 對應)
+  - **移除單位**(cm/kg 不顯示;`s.unit` 不再使用,profile 資料保留)
+- **驗證**：build exit 0;DOM 三項各有 svg icon、label/value 正確、flexDir=row、無 cm/kg;console 0 錯
+- **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無
