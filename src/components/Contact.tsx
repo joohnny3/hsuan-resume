@@ -1,6 +1,6 @@
 import { profile } from "@/data/profile";
 import CopyButton from "./CopyButton";
-import { LineIcon } from "./Nav";
+import { InstagramIcon, LineIcon, MailIcon } from "./Nav";
 import SectionTitle from "./SectionTitle";
 
 export default function Contact() {
@@ -35,13 +35,21 @@ export default function Contact() {
               <LineIcon className="size-5" />
               加 LINE 聊聊
             </a>
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2 rounded-full border border-hairline px-8 py-3 font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+            >
+              <MailIcon className="size-5" />
+              信箱
+            </a>
             {profile.instagram && (
               <a
                 href={`https://www.instagram.com/${profile.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-hairline px-8 py-3 font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-hairline px-8 py-3 font-medium text-ink transition-colors hover:border-accent hover:text-accent"
               >
+                <InstagramIcon className="size-5" />
                 Instagram
               </a>
             )}

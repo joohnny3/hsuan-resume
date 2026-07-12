@@ -148,5 +148,22 @@
 - **State**：S9 內追加微調（使用者:填色太快）
 - **做了什麼**：hover 填色 `transition-duration` 0.55s → **1.4s**(慢、像慢慢簽);離開退回維持 **0.5s**(快、不拖泥帶水)。手法:base 放退回時長,`:hover` 規則只覆寫 `transition-duration`
 - **驗證**：build exit 0;DOM 常態 duration 0.5s、hover 規則 duration 1.4s;output CSS 含 `transition-duration:1.4s`
+- **Commit**：`42b170d`
+- **偏離**：無
+
+---
+
+## Step 12 — Hero 改 profile-card ＋ 聯絡管道擴充（2026-07-12）
+
+- **State**：S9 內追加微調（使用者提供圖二參考＋新文案＝選項 C）
+- **做了什麼**（ADR-010）：
+  - Hero 重排:職稱 eyebrow「展場模特兒・品牌推廣」→ 大名 **張庭瑄** ＋ HSUAN(英文,取代原大字藝名)→ 完整自介 3 段 → 數據列(保留)→ icon 聯絡列(信箱／LINE／IG)
+  - 移除原特質行與兩顆大按鈕(LINE 邀約／查看作品);主 CTA 由底部邀約區承接
+  - `profile.ts`:eyebrow 改職稱、intro 換 3 段新文案、新增 `email`、`instagram` 填 `__h_s_u_a_n__`(IG 連結去 QR 追蹤參數)
+  - 新增 `MailIcon`／`InstagramIcon`(Nav.tsx export);底部邀約區三管道皆補 icon
+  - 照片維持右側大圖
+- **驗證**：build exit 0;DOM eyebrow/h1(張庭瑄HSUAN)/自介 3 段/三聯絡連結 href 正確(mailto、line.me、instagram.com/__h_s_u_a_n__)、特質行與大按鈕已移除;底部區三連結齊;console 0 錯誤
+- **隱私**：email／IG 屬使用者授權公開;電話仍 0 筆(ADR-001 不變)
+- **已知環境註記**：預覽截圖管線持續凍結,視覺以 DOM 為證,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無

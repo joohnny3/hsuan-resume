@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 11
-  title: "簽名填色放慢（1.4s 填 / 0.5s 退）（微調 step 10）（完成）"
+  n: 12
+  title: "Hero 改 profile-card ＋ 聯絡管道擴充（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 10
-  title: "簽名填色改 hover 觸發（連結提示）"
-  commit: "382ac8f"
+  n: 11
+  title: "簽名填色放慢（1.4s 填 / 0.5s 退）"
+  commit: "42b170d"
   completed_at: "2026-07-12"
 next_step:
-  n: 12
+  n: 13
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#11**: 簽名填色放慢（微調 step 10）— 完成。hover 填色 1.4s(慢、像慢慢簽),離開退回 0.5s(快);其餘 hover 行為與日夜自動不變。
+- **#12**: Hero 改 profile-card — 完成。職稱＋大名張庭瑄 HSUAN＋完整自介 3 段＋數據列＋icon 聯絡列(信箱／LINE／IG);移除特質行與大按鈕;email／IG 納入公開白名單(ADR-010)。
 
 ## 下一個 Step
 
-- **#12**: 等使用者選擇（S9 不可自動選）：
+- **#13**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）

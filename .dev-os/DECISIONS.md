@@ -239,6 +239,32 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 
 ---
 
+## ADR-010：首屏改 profile-card ＋ 公開聯絡管道擴充(email／IG)
+
+**日期**：2026-07-12
+**狀態**：Active（延伸 ADR-005 資訊架構;擴充 ADR-001 公開白名單）
+
+**脈絡**：
+使用者提供自己的開發者 profile 卡當參考(圖二),要求 Hero 自介區照該結構重排,並給出新職稱、完整自介文案、以及信箱與 IG 帳號(都要帶 icon)。
+
+**決定**：
+1. Hero 版面:職稱 eyebrow(展場模特兒・品牌推廣)→ 大名 **張庭瑄** ＋ 英文 HSUAN(取代原本大字藝名「瑄瑄」;藝名仍在自介與 nav 簽名)→ 完整自介(3 段)→ 數據列(保留)→ **icon 聯絡列**(信箱／LINE／IG)
+2. 移除:原特質行(活潑開朗…,已併入自介)、Hero 兩顆大按鈕(LINE 邀約／查看作品);主要 LINE CTA 由底部「合作邀約」區承接
+3. 照片維持右側大圖(全身形象照,不縮成圖二式方形頭像)
+4. **公開白名單擴充**(ADR-001):新增 email `aso86012000@yahoo.com`、IG `__h_s_u_a_n__`;IG 連結去除 QR 追蹤參數(igsh／utm_source);**電話仍永不進 repo**
+5. 底部聯絡區同步:LINE／信箱／IG 三管道皆帶 icon;新增 MailIcon、InstagramIcon(outline 風,與既有 filled LineIcon 並用)
+
+**理由**：
+- 對齊使用者偏好的 profile-card 敘事,職稱＋完整自介更能對廠商說清楚能力
+- 多一個 email 管道與 IG 作品延伸,降低邀約門檻
+
+**Trade-off**：
+- Hero 少了大粉色 CTA 按鈕(以底部區補);email/IG 公開會被爬蟲收錄(使用者授權、可接受;電話仍不公開)
+
+**影響的模組**：M1（Hero／Contact／profile 資料）
+
+---
+
 ## 待補的 ADR（rolling list）
 
 - [ ] 自訂網域方案（觸發：使用者購買網域時）
