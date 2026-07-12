@@ -2,10 +2,8 @@ import Image from "next/image";
 
 import { heroPhoto, profile } from "@/data/profile";
 import { asset } from "@/lib/site";
-import { InstagramIcon, LineIcon, MailIcon } from "./Nav";
 
 export default function Hero() {
-  const igUrl = `https://www.instagram.com/${profile.instagram}`;
   return (
     <section id="top" className="relative overflow-hidden bg-canvas-deep">
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 pb-20 md:grid-cols-[1.1fr_0.9fr] md:pt-20">
@@ -45,37 +43,6 @@ export default function Hero() {
               </div>
             ))}
           </dl>
-
-          {/* 聯絡列:信箱 / LINE / IG,皆帶 icon */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
-            <a
-              href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-            >
-              <MailIcon className="size-4" />
-              {profile.email}
-            </a>
-            <a
-              href={profile.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-            >
-              <LineIcon className="size-4" />
-              LINE 邀約
-            </a>
-            {profile.instagram && (
-              <a
-                href={igUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-              >
-                <InstagramIcon className="size-4" />
-                Instagram
-              </a>
-            )}
-          </div>
         </div>
 
         {/* 形象照 */}

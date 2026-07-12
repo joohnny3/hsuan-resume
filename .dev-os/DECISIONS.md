@@ -265,6 +265,33 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 
 ---
 
+## ADR-011：聯絡資訊收斂進頁尾 footer ＋ 開發者署名
+
+**日期**：2026-07-12
+**狀態**：Active（延伸 ADR-010;調整 ADR-005 頁面流的「邀約」段）
+
+**脈絡**：
+使用者提供參考頁尾(圖二:多欄 footer＋帶 icon 聯絡欄＋底部 copyright),要求把聯絡資訊統一收進 footer,移除獨立「合作邀約」區與 Hero 的聯絡 icon 列。
+
+**決定**：
+1. 移除 `Contact.tsx`(合作邀約區)與 `CopyButton.tsx`(隨之無用),刪檔
+2. 移除 Hero 的聯絡 icon 列(Hero 回歸純自介:職稱／姓名／自介／數據列)
+3. 新增 `Footer.tsx`(圖二式三欄):品牌(瑄瑄 Hsuan＋職稱＋tagline)／聯絡資訊(LINE 1012251・信箱・IG,皆帶 icon)／快速連結(合作品牌・活動照片);footer 掛 `id="contact"`,nav「邀約」改指向 footer
+4. 頁面流變為:Hero → 品牌字牆 → 照片牆 → Footer(含聯絡)
+5. 底部 copyright 只留 **「Copyright © 2026 Chang Yu Cheng. All rights reserved.」**——即開發者張育誠署名(非主角瑄瑄);年份依使用者指定寫死 2026
+
+**理由**：
+- 聯絡管道單一入口(footer),版面更乾淨;對齊使用者偏好的 footer 參考
+- 網站由張育誠開發,footer 署名開發者
+
+**Trade-off**：
+- 少了 Hero 與獨立區的醒目 LINE CTA(改由 footer 承接;若需轉換可再加回)
+- copyright 年份寫死,跨年需手改
+
+**影響的模組**：M1（Hero／新 Footer／page；刪 Contact／CopyButton）
+
+---
+
 ## 待補的 ADR（rolling list）
 
 - [ ] 自訂網域方案（觸發：使用者購買網域時）

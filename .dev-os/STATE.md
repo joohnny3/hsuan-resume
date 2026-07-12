@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 12
-  title: "Hero 改 profile-card ＋ 聯絡管道擴充（完成）"
+  n: 14
+  title: "聯絡收斂進 footer ＋ 開發者署名（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 11
-  title: "簽名填色放慢（1.4s 填 / 0.5s 退）"
-  commit: "42b170d"
+  n: 13
+  title: "英文名 Hsuan ＋ 自介首段精簡"
+  commit: "17253d7"
   completed_at: "2026-07-12"
 next_step:
-  n: 13
+  n: 15
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#12**: Hero 改 profile-card — 完成。職稱＋大名張庭瑄 HSUAN＋完整自介 3 段＋數據列＋icon 聯絡列(信箱／LINE／IG);移除特質行與大按鈕;email／IG 納入公開白名單(ADR-010)。
+- **#14**: 聯絡收斂進 footer — 完成。刪合作邀約區＋Hero 聯絡列＋Contact/CopyButton 檔;新增圖二式三欄 footer(品牌／聯絡資訊／快速連結,帶 icon);copyright「Copyright © 2026 Chang Yu Cheng. All rights reserved.」(開發者署名);nav 邀約→footer(ADR-011)。
 
 ## 下一個 Step
 
-- **#13**: 等使用者選擇（S9 不可自動選）：
+- **#15**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）

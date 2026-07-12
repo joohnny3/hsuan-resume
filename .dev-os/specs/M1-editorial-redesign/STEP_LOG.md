@@ -165,5 +165,31 @@
 - **驗證**：build exit 0;DOM eyebrow/h1(張庭瑄HSUAN)/自介 3 段/三聯絡連結 href 正確(mailto、line.me、instagram.com/__h_s_u_a_n__)、特質行與大按鈕已移除;底部區三連結齊;console 0 錯誤
 - **隱私**：email／IG 屬使用者授權公開;電話仍 0 筆(ADR-001 不變)
 - **已知環境註記**：預覽截圖管線持續凍結,視覺以 DOM 為證,實機不受影響
+- **Commit**：`9c2da4a`
+- **偏離**：無
+
+---
+
+## Step 13 — 英文名 Hsuan ＋ 自介首段精簡（2026-07-12）
+
+- **State**：S9 內追加微調（純內容）
+- **做了什麼**：`englishName` HSUAN → **Hsuan**(全站:Hero／footer／title,與簽名一致);自介首段改「百貨彩妝、車展、科技展、酒展」
+- **驗證**：build 過;DOM h1「張庭瑄Hsuan」、title「瑄瑄 Hsuan」、footer 無大寫 HSUAN、首段新文案
+- **Commit**：`17253d7`
+- **偏離**：無
+
+---
+
+## Step 14 — 聯絡收斂進 footer ＋ 開發者署名（2026-07-12）
+
+- **State**：S9 內追加微調（使用者提供圖二 footer 參考＝選項 C）
+- **做了什麼**（ADR-011）：
+  - 刪 `Contact.tsx`(合作邀約區)＋`CopyButton.tsx`(隨之無用);移除 Hero 聯絡 icon 列
+  - 新增 `Footer.tsx`:圖二式三欄(品牌／聯絡資訊 LINE・信箱・IG 帶 icon／快速連結),`id="contact"`,nav「邀約」改指 footer
+  - 底部 copyright 只留「Copyright © 2026 Chang Yu Cheng. All rights reserved.」(開發者張育誠署名,年份寫死)
+  - 頁面流:Hero → 品牌 → 照片 → Footer
+- **驗證**：build exit 0;DOM Hero 無聯絡列、合作邀約區已無、footer 三欄五連結 href 全對、copyright 字串正確、nav#contact→footer;console 0 錯
+- **隱私**：email／IG 公開如常;電話仍 0 筆
+- **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無
