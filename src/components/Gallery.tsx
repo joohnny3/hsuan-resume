@@ -3,25 +3,19 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
-import { galleryCategories, photos, type GalleryCategory } from "@/data/profile";
+import { photos } from "@/data/profile";
 import { asset } from "@/lib/site";
 import SectionTitle from "./SectionTitle";
 
 export default function Gallery() {
-  const [cat, setCat] = useState<GalleryCategory>("all");
   const [current, setCurrent] = useState<number | null>(null);
 
-  const filtered = cat === "all" ? photos : photos.filter((p) => p.category === cat);
-
   const close = useCallback(() => setCurrent(null), []);
-  const step = useCallback(
-    (delta: number) => {
-      setCurrent((idx) =>
-        idx === null ? null : (idx + delta + filtered.length) % filtered.length,
-      );
-    },
-    [filtered.length],
-  );
+  const step = useCallback((delta: number) => {
+    setCurrent((idx) =>
+      idx === null ? null : (idx + delta + photos.length) % photos.length,
+    );
+  }, []);
 
   useEffect(() => {
     if (current === null) return;
@@ -38,42 +32,14 @@ export default function Gallery() {
     };
   }, [current, close, step]);
 
-  const countOf = (key: GalleryCategory) =>
-    key === "all" ? photos.length : photos.filter((p) => p.category === key).length;
-
   return (
     <section id="gallery" className="scroll-mt-20 border-t border-hairline">
       <div className="mx-auto max-w-6xl px-5 py-20">
-        <SectionTitle
-          eyebrow="Gallery"
-          title="活動照片"
-          sub="點照片可放大瀏覽完整原圖"
-        />
-
-        <div className="mb-10 flex flex-wrap justify-center gap-2.5">
-          {galleryCategories.map(({ key, label }) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => {
-                setCat(key);
-                setCurrent(null);
-              }}
-              className={`rounded-full border px-5 py-2 text-sm transition-colors ${
-                cat === key
-                  ? "border-accent bg-accent font-bold text-on-accent"
-                  : "border-hairline bg-surface text-muted hover:border-accent hover:bg-accent-soft hover:text-accent"
-              }`}
-            >
-              {label}
-              <span className="ml-1.5 text-xs opacity-60">{countOf(key)}</span>
-            </button>
-          ))}
-        </div>
+        <SectionTitle title="活動照片" sub="點擊照片可瀏覽完整原圖" />
 
         {/* 統一 3:4 直式卡(ADR-005),裁切構圖偏上避免砍頭 */}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
-          {filtered.map((photo, i) => (
+          {photos.map((photo, i) => (
             <button
               key={photo.file}
               type="button"
@@ -95,13 +61,13 @@ export default function Gallery() {
           ))}
         </div>
 
-        {current !== null && filtered[current] && (
+        {current !== null && photos[current] && (
           <div
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 p-4"
             onClick={close}
             role="dialog"
             aria-modal="true"
-            aria-label={filtered[current].caption}
+            aria-label={photos[current].caption}
           >
             <div
               className="relative flex max-h-full flex-col items-center"
@@ -109,16 +75,16 @@ export default function Gallery() {
             >
               {/* 燈箱顯示完整未裁切原圖 */}
               <Image
-                src={asset(`/photos/${filtered[current].file}`)}
-                alt={filtered[current].caption}
-                width={filtered[current].w}
-                height={filtered[current].h}
+                src={asset(`/photos/${photos[current].file}`)}
+                alt={photos[current].caption}
+                width={photos[current].w}
+                height={photos[current].h}
                 className="max-h-[80vh] w-auto rounded-lg"
               />
               <p className="mt-4 font-serif text-sm tracking-wide text-white/90">
-                {filtered[current].caption}
+                {photos[current].caption}
                 <span className="ml-3 text-xs text-white/40">
-                  {current + 1} / {filtered.length}
+                  {current + 1} / {photos.length}
                 </span>
               </p>
             </div>

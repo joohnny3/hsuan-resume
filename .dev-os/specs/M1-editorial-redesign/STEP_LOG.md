@@ -233,5 +233,21 @@
   - **移除單位**(cm/kg 不顯示;`s.unit` 不再使用,profile 資料保留)
 - **驗證**：build exit 0;DOM 三項各有 svg icon、label/value 正確、flexDir=row、無 cm/kg;console 0 錯
 - **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
-- **Commit**：（本 step commit）
+- **Commit**：`55c0b67`
 - **偏離**：無
+
+---
+
+## Step 18 — 品牌／照片區標題文案調整 ＋ 移除照片分類篩選（2026-07-12）
+
+- **State**：S9 內追加微調（使用者看預覽截圖回饋＝選項 C）
+- **做了什麼**：
+  - `SectionTitle`:`eyebrow` 改為可選(optional),無 eyebrow 時不渲染小標、h2 去掉 `mt-3`
+  - 合作品牌區:移除英文小標「Selected Clients」;標題「合作品牌與活動」→「**合作品牌**」;副標→「**參與 30+ 美妝、車展、科技品牌活動推廣經驗**」
+  - 活動照片區:移除英文小標「Gallery」;標題「活動照片」不變;副標「點照片可放大瀏覽完整原圖」→「**點擊照片可瀏覽完整原圖**」
+  - Gallery:**移除分類篩選列**(全部/展場/美妝… 鈕),照片改**統一排列**全部 37 張;`Gallery.tsx` 移除 `cat` state、`galleryCategories`／`GalleryCategory` import、`countOf`,`filtered`→直接用 `photos`;燈箱與鍵盤導覽保留
+  - `profile.ts` 的 `galleryCategories`／`GalleryCategory`／每張 `category` 欄位**保留不動**(未被使用亦不影響 build;哪天要加回篩選很容易)
+- **驗證**：build exit 0;DOM brands eyebrow=null／title=合作品牌／sub 正確、gallery eyebrow=null／title=活動照片／sub=點擊照片可瀏覽完整原圖、分類列 filterRowExists=false、照片鈕 37 顆;console 0 錯
+- **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
+- **Commit**：（本 step commit）
+- **偏離**：使用者兩段「改成」皆省略英文小標,判定為要移除 eyebrow(已於報告標明,可要求復原)

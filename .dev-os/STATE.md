@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 17
-  title: "數據列改 icon 卡片式（橫列、無單位）（完成）"
+  n: 18
+  title: "品牌／照片區標題文案調整＋移除照片分類篩選（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 16
-  title: "聯絡列抽共用元件、統一順序與文字"
-  commit: "514b1d6"
+  n: 17
+  title: "數據列改 icon 卡片式（橫列、無單位）"
+  commit: "55c0b67"
   completed_at: "2026-07-12"
 next_step:
-  n: 18
+  n: 19
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#17**: 數據列 icon 卡片式 — 完成。身高/體重/三圍改「icon 方塊＋標籤＋數值」橫排,去單位;3 個 outline icon。
+- **#18**: 品牌／照片區標題文案 ＋ 移除照片分類篩選 — 完成。合作品牌區標題改「合作品牌」、副標「參與 30+ 美妝、車展、科技品牌活動推廣經驗」;活動照片副標改「點擊照片可瀏覽完整原圖」;兩區英文小標(Selected Clients／Gallery)移除;Gallery 分類篩選列拿掉,37 張照片統一排列。
 
 ## 下一個 Step
 
-- **#18**: 等使用者選擇（S9 不可自動選）：
+- **#19**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
