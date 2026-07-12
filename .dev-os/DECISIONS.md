@@ -212,6 +212,33 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 
 ---
 
+## ADR-009：字體系統 v2——全站統一襯線(Noto Serif 同源超家族)
+
+**日期**：2026-07-12
+**狀態**：Active（Supersedes ADR-004 的字型部分：Playfair Display＋Noto Sans TC 混搭作廢）
+
+**脈絡**：
+使用者回饋三點:①數據列數字高低不平 ②中英字體不統一 ③覺得現在字體醜。逐題拷問(4 題)後定案。根因:原本混用 Playfair Display(拉丁)＋思源宋(中文標題)＋思源黑(內文)三套;數字不平來自 Playfair 的舊體數字(old-style figures,升降部)＋數字襯線/單位無襯線基線不一。中文網頁襯線高品質免費字幾乎只有思源宋,故拉丁側改用其同源家族。
+
+**決定**：
+1. 全站統一襯線:拉丁 **Noto Serif** ＋ 中文 **Noto Serif TC**(思源宋)——兩者同源設計,筆形/粗細/基線對齊,中英視覺如同一支字
+2. 範圍=全站:標題、內文段落、品牌名、eyebrow、迷你標籤、數字全部襯線;**整支 Noto Sans TC 移除**
+3. 機制:`--font-serif-latin`＋`--font-serif-tc` 兩變數;globals 的 `--font-sans` 與 `--font-serif` 皆指向同一襯線堆疊,body 一併襯線化(元件免大改)
+4. 數字:`font-variant-numeric: lining-nums`(body 全域)＋數據列加 `tabular-nums`,根治高低不平並讓三欄等寬
+5. 載入權重:Noto Serif 400/500/600/700/900(含 italic)、Noto Serif TC 400/600/700/900
+
+**理由**：
+- 同源家族是「統一」最徹底解;移除整支 sans 反而減少字型負載
+- lining/tabular 數字是數據列不平的根治,非表層微調
+
+**Trade-off**：
+- 中文長段落用宋體易讀性略低於黑體,但本站內文極短(自介 2-3 行),影響可忽略
+- 極小 eyebrow 用襯線較不「銳利」,以字重/字距補償(使用者明確選擇徹底統一)
+
+**影響的模組**：M1 全部文字呈現
+
+---
+
 ## 待補的 ADR（rolling list）
 
 - [ ] 自訂網域方案（觸發：使用者購買網域時）

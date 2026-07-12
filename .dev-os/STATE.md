@@ -18,17 +18,17 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 6
-  title: "Dark mode 配色 v4：BLACKPINK 暖黑（完成）"
+  n: 7
+  title: "字體系統 v2：全站統一襯線 Noto Serif（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 5
-  title: "S9 視覺微調批次：光暈／簽名 logo／header 精簡"
-  commit: "a546eff"
+  n: 6
+  title: "Dark mode 配色 v4：BLACKPINK 暖黑"
+  commit: "0f3610f"
   completed_at: "2026-07-12"
 next_step:
-  n: 7
+  n: 8
   title: "等使用者選擇:M2 發布（需明說）/ M3 補內容 / 繼續微調"
   location: "same conversation"
 blockers: []
@@ -45,11 +45,11 @@ blockers: []
 
 ## 當前 Step
 
-- **#6**: Dark mode 配色 v4 — 完成。夜間換成 BLACKPINK 暖黑（canvas `#0B0A0B`、accent `#F598AF`）＋Hero/Footer 純黑分區；新增 canvas-deep／accent-strong／hairline-hover 三 token；日間（ADR-007）不動。
+- **#7**: 字體系統 v2 — 完成。全站統一襯線（拉丁 Noto Serif ＋ 中文思源宋,同源）;移除 Playfair 與整支 Noto Sans TC;數字改 lining+tabular 根治高低不平（ADR-009）。
 
 ## 下一個 Step
 
-- **#7**: 等使用者選擇（S9 不可自動選）：
+- **#8**: 等使用者選擇（S9 不可自動選）：
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）
@@ -60,8 +60,8 @@ blockers: []
 
 ## Module Progress
 
-- M1-editorial-redesign: 6 / 6 steps ✅（step 4-6 為 S9 內追加微調）
-- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆／配色 v3+v4 token／簽名 logo 雙主題可見）
+- M1-editorial-redesign: 7 / 7 steps ✅（step 4-7 為 S9 內追加微調）
+- Acceptance: 全數通過（build／隱私 grep／日夜切換／3:4 統一／燈箱／品牌字牆／配色 v3+v4 token／簽名 logo／全站統一襯線＋數字齊頭）
 
 ## Recent commits（本模組）
 

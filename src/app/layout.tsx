@@ -1,28 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_TC, Noto_Serif_TC, Playfair_Display } from "next/font/google";
+import { Noto_Serif, Noto_Serif_TC } from "next/font/google";
 
 import { profile } from "@/data/profile";
 import { SITE_ORIGIN, SITE_URL } from "@/lib/site";
 
 import "./globals.css";
 
-const noto = Noto_Sans_TC({
-  variable: "--font-noto",
-  weight: ["400", "500", "700"],
+// 拉丁襯線:思源宋的同源拉丁(Noto Serif),與中文思源宋筆形、基線對齊(ADR-009)
+const serifLatin = Noto_Serif({
+  variable: "--font-serif-latin",
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
 
+// 中文襯線:思源宋體;內文改襯線後需 400 regular
 const serifTC = Noto_Serif_TC({
   variable: "--font-serif-tc",
-  weight: ["600", "700", "900"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  style: ["normal", "italic"],
+  weight: ["400", "600", "700", "900"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -63,7 +59,7 @@ export default function RootLayout({
       lang="zh-Hant-TW"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${noto.variable} ${serifTC.variable} ${playfair.variable} h-full antialiased`}
+      className={`${serifLatin.variable} ${serifTC.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />

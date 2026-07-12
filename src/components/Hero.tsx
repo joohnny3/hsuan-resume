@@ -41,7 +41,7 @@ export default function Hero() {
                 <dt className="text-[11px] uppercase tracking-[0.2em] text-muted">
                   {s.label}
                 </dt>
-                <dd className="mt-1.5 font-serif text-lg font-semibold text-accent">
+                <dd className="mt-1.5 font-serif text-lg font-semibold tabular-nums lining-nums text-accent">
                   {s.value}
                   {s.unit && <span className="ml-0.5 text-xs text-muted">{s.unit}</span>}
                 </dd>

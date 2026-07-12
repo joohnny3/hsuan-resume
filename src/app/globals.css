@@ -62,10 +62,12 @@
   --color-on-accent: var(--on-accent);
   --color-overlay: var(--overlay);
 
-  --font-sans: var(--font-noto), "PingFang TC", "Microsoft JhengHei",
-    ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), var(--font-serif-tc), "PMingLiU", Georgia,
-    ui-serif, serif;
+  /* 全站統一襯線(ADR-009):拉丁 Noto Serif ＋ 中文思源宋,同源對齊。
+     --font-sans 也指向襯線,讓 body 與少數 font-sans 一併襯線化。 */
+  --font-sans: var(--font-serif-latin), var(--font-serif-tc), "PMingLiU",
+    "Songti TC", Georgia, ui-serif, serif;
+  --font-serif: var(--font-serif-latin), var(--font-serif-tc), "PMingLiU",
+    "Songti TC", Georgia, ui-serif, serif;
 }
 
 html {
@@ -76,6 +78,7 @@ body {
   background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-variant-numeric: lining-nums; /* 數字齊頭,根治 Playfair 舊體數字高低跳 */
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 

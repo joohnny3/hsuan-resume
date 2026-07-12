@@ -75,5 +75,21 @@
   - **只改 dark;light(ADR-007)完全不動**
 - **驗證**：build exit 0；DOM 逐字比對 15 個 token 全符合色票、Hero/Footer `rgb(0,0,0)`、body `#0B0A0B`；console 0 錯誤；舊 dark 色碼 src 殘留 0 筆
 - **已知環境註記**：本 session 預覽截圖管線再度卡死,視覺證據以 computed token 為準,實機不受影響
+- **Commit**：`0f3610f`
+- **偏離**：無
+
+---
+
+## Step 7 — 字體系統 v2：全站統一襯線（2026-07-12）
+
+- **State**：S9 內追加微調（使用者拷問 4 題定案＝選項 C）
+- **拷問結論**：①精品襯線但修好 ②同源超家族 ③全站統一襯線 ④迷你標籤也襯線（ADR-009）
+- **做了什麼**：
+  - 拉丁 Playfair Display → **Noto Serif**(思源宋同源);移除整支 **Noto Sans TC**;中文維持 Noto Serif TC(補 400 regular 供內文)
+  - globals `--font-sans`／`--font-serif` 皆指向 `Noto Serif → Noto Serif TC` 襯線堆疊,body 一併襯線化(元件零改動,全繼承)
+  - 數字:body 全域 `lining-nums`＋數據列 `tabular-nums lining-nums`,根治 Playfair 舊體數字高低不平
+  - 載入權重收斂:Noto Serif 400/500/600/700/900+italic、Noto Serif TC 400/600/700/900
+- **驗證**：build exit 0;DOM 實測 body/h1/eyebrow/自介/數字/nav/品牌名 **全部**解析到統一襯線堆疊;`playfairOrSansLoaded=false`;數字 variant=`lining-nums tabular-nums`;console 0 錯誤;無真正殘留舊字型引用
+- **已知環境註記**：預覽截圖管線持續卡死,視覺證據以 computed font-family 為準,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無
