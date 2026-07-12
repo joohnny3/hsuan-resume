@@ -23,7 +23,7 @@ const serifTC = Noto_Serif_TC({
   display: "swap",
 });
 
-const title = `${profile.stageName} ${profile.englishName}｜展場活動 SG・PG 作品集`;
+const title = `${profile.stageName} ${profile.englishName}｜展場模特兒`;
 const description =
   "瑄瑄 HSUAN——展場 SG/PG、專櫃美妝、快閃派樣、典禮接待。30+ 場活動經驗，165cm，歡迎透過 LINE 邀約。";
 

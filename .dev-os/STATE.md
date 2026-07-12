@@ -18,18 +18,18 @@ conversation:
   health_verdict: "Healthy"
   note: "本對話已 /compact 壓縮，以壓縮後有效脈絡估計"
 current_step:
-  n: 22
-  title: "🚀 首次發布上線 GitHub Pages（完成）"
+  n: 23
+  title: "favicon 換 QQ.svg（主題自適應）＋title 改展場模特兒（完成）"
   location: "same conversation"
   started_at: "2026-07-12"
 last_step:
-  n: 21
-  title: "新增活動經歷區（條列、去日期）＋nav 第三 icon"
-  commit: "7ca5254"
+  n: 22
+  title: "🚀 首次發布上線 GitHub Pages"
+  commit: "20c4bfc"
   completed_at: "2026-07-12"
 next_step:
-  n: 23
-  title: "等使用者選擇:繼續微調 / M3 補內容 / 收尾。dev-os 本地 commit 待確認是否推送"
+  n: 24
+  title: "等使用者選擇:繼續微調 / 收尾。有 2 個本地 commit(step 22、23)待確認是否 push 上線"
   location: "same conversation"
 published:
   live_url: "https://joohnny3.github.io/hsuan-resume/"
@@ -50,12 +50,12 @@ blockers: []
 
 ## 當前 Step
 
-- **#22**: 🚀 首次發布上線 — 完成。建立公開 repo joohnny3/hsuan-resume、push main、啟用 Pages(GitHub Actions)、workflow build+deploy 成功。線上站 200、四區塊齊全、電話 0 筆、圖檔全 200。達成 VISION stage 1「可分享上線」。
+- **#23**: favicon 換 QQ.svg ＋ title 改「展場模特兒」— 完成。`src/app/icon.svg`(主題自適應:淺 #17171a／深 #f8f3f5),刪舊 icon.png;title→「瑄瑄 Hsuan｜展場模特兒」。build 過、XML 合法。
 
 ## 下一個 Step
 
-- **#23**: 等使用者選擇（S9 不可自動選）：
-  - **dev-os step 22 記錄**目前為本地 commit,未推送(避免多一次冗餘 redeploy;要同步 origin 說一聲即可)
+- **#24**: 等使用者選擇（S9 不可自動選）:
+  - **有 2 個本地 commit 未推送**(step 22 發布記錄、step 23 favicon+title)。這兩個含網站實體變更(favicon、title),**要上線需說「push」**;push 後 Actions 會自動 redeploy。
   - **A. M2 發布上線**（需明說「發布／push」，ADR-002）
   - **B. M3 補內容**（IG／新經歷／競選照決定）
   - **C. 繼續視覺微調**（本機預覽 http://localhost:3000/hsuan-resume）

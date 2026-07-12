@@ -307,5 +307,19 @@
   - 首次 run 因競態(configure-pages 早於 Pages 啟用)失敗 → 啟用後 `gh run rerun --failed` 重跑成功
 - **驗證**：Actions build✓ deploy✓;線上 https://joohnny3.github.io/hsuan-resume/ HTTP 200;DOM 4 區塊齊全、品牌 26／活動 34／照片 37／nav 3、姓名張庭瑄(瑄非瑋);**線上 HTML 電話 0 筆**;hero 圖與抽樣 gallery 圖 curl 全 200 image/webp(basePath 解析正確);CSS/暗色模式正常
 - **已知環境註記**：預覽瀏覽器凍結 → 懶載入圖在此不顯示,但 curl 證實圖檔皆 200,實機正常
-- **Commit**：（本 step commit,dev-os 記錄;預設本地不自動推,見報告）
+- **Commit**：`20c4bfc`（本地,尚未推送）
+- **偏離**：無
+
+---
+
+## Step 23 — favicon 換成 QQ.svg（主題自適應）＋ title 改「展場模特兒」（2026-07-12）
+
+- **State**：S9(published)內追加微調（使用者要求）
+- **做了什麼**：
+  - favicon:`QQ.svg`(1024 純黑剪影插畫)複製為 `src/app/icon.svg`(Next App Router 自動當 favicon);root tag 清理,加入 `<style>` 讓 `path` fill 依 `prefers-color-scheme` 換色 —— **淺色分頁 `#17171a`、深色分頁 `#f8f3f5`**(CSS 覆寫 path 的 `fill="#000000"` 屬性,兩種分頁背景都清晰)
+  - 刪除舊 `src/app/icon.png`(git rm),改用單一 SVG favicon
+  - `layout.tsx` title:`瑄瑄 Hsuan｜展場活動 SG・PG 作品集` → **`瑄瑄 Hsuan｜展場模特兒`**(openGraph siteName 同步跟著改)
+- **驗證**：build exit 0,路由 `/icon.png`→`/icon.svg`;out/index.html `<title>瑄瑄 Hsuan｜展場模特兒</title>`、`<link rel=icon href=.../icon.svg type=image/svg+xml>`(basePath 正確)、無 icon.png 殘留;out/icon.svg 含 prefers-color-scheme 換色 style;Python XML 解析通過(root=svg、viewBox 1024、7 path、1 style)
+- **註**：使用者原始 `QQ.svg` 仍在 repo root(未追蹤);已納入 icon.svg,root 那份可留可刪
+- **Commit**：（本 step commit,本地;未推送 — 待使用者說 push)
 - **偏離**：無
