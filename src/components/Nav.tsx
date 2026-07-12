@@ -7,7 +7,6 @@ const sign = asset("/hsuuan-sign.svg");
 const links = [
   ["#brands", "品牌"],
   ["#gallery", "作品"],
-  ["#contact", "邀約"],
 ] as const;
 
 export default function Nav() {

@@ -191,5 +191,19 @@
 - **驗證**：build exit 0;DOM Hero 無聯絡列、合作邀約區已無、footer 三欄五連結 href 全對、copyright 字串正確、nav#contact→footer;console 0 錯
 - **隱私**：email／IG 公開如常;電話仍 0 筆
 - **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
+- **Commit**：`58db011`
+- **偏離**：無
+
+---
+
+## Step 15 — footer 精簡為 slim bar ＋ Hero 聯絡列復原 ＋ nav 去邀約（2026-07-12）
+
+- **State**：S9 內追加微調（使用者看圖回饋＝選項 C）
+- **做了什麼**：
+  - Footer:移除品牌欄與快速連結欄,聯絡資訊改**橫向**、與 copyright **併成同一列** slim bar(sm 以上 justify-between)
+  - Hero:**加回**聯絡 icon 列(信箱／LINE／IG)——使用者要留(上一步移除的復原)
+  - Nav:移除「邀約」連結(留 品牌／作品);footer 仍掛 id=contact(無 nav 連結指向,無妨)
+- **驗證**：build exit 0;DOM nav=品牌/作品、Hero 聯絡列三連結、footer 橫向三連結＋copyright 同列(flex-row)、無品牌/快速連結欄與欄標題;console 0 錯
+- **已知環境註記**：預覽截圖凍結,視覺以 DOM 為證,實機不受影響
 - **Commit**：（本 step commit）
 - **偏離**：無
