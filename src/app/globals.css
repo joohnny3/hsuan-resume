@@ -68,6 +68,10 @@
     "Songti TC", Georgia, ui-serif, serif;
   --font-serif: var(--font-serif-latin), var(--font-serif-tc), "PMingLiU",
     "Songti TC", Georgia, ui-serif, serif;
+  /* 首屏姓名專用(ADR-009 例外):中文 Shippori Mincho,英文仍是 Noto Serif(排前面先吃拉丁字)。
+     載入前/失敗時退回思源宋(同為明體,切換時幾乎不跳動)。 */
+  --font-display: var(--font-serif-latin), var(--font-mincho-name),
+    var(--font-serif-tc), "PMingLiU", "Songti TC", serif;
 }
 
 html {

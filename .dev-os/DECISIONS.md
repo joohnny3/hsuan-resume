@@ -237,6 +237,13 @@ Next.js（App Router）＋ TypeScript ＋ Tailwind CSS v4；內容集中於 `src
 
 **影響的模組**：M1 全部文字呈現
 
+**追記（2026-10-09，使用者指定的例外）**：
+首屏姓名 `<h1>` 的中文「張庭瑄」改用 **Shippori Mincho SemiBold 600**（築地體系的古典明體）；英文「Hsuan」維持 Noto Serif 500 正體（不斜）。僅此一處例外，其餘文字仍依本 ADR 全站襯線。
+- 經過（同一天三次迭代）：① 使用者指定 Noto Sans TC → 看後覺得不好看；② 改選霞鶩文楷 Bold → 使用者不喜歡手寫感；③ 使用者要「高級典雅、類似蘭陽明體」。蘭陽明體是 justfont 的付費字型，未購買網頁授權不能嵌入，故以無頭瀏覽器實排明體候選（思源宋 400–700、仙人掌明體、昭源宋體、Shippori／Zen Old／Hina／Kaisei 等日系明朝）後選 Shippori Mincho：同為築地體脈絡、古典感最接近。
+- **缺字陷阱**：日系明朝多半沒有「瑄」（U+7444）。Google Fonts 的 unicode-range 與 `document.fonts.load` 都會誤報「有字」，必須下載子集檢查 cmap，或用 CDP `CSS.getPlatformFontsForNode` 看實際用到的字型。Shippori Mincho 已用兩種方式確認三字皆有；Zen Old Mincho／Hina Mincho／Kaisei Tokumin 的「瑄」會退回系統字，不可用。
+- 機制：`layout.tsx` 另載 `Shippori_Mincho`（僅 600、`preload: false`，變數 `--font-mincho-name`）→ globals `--font-display`（Noto Serif 排前吃拉丁字 → Shippori → 退回思源宋）→ Hero h1 用 `font-display font-semibold tracking-wider`。
+- 若使用者日後購買蘭陽明體網頁授權，可改為自架字檔並只子集「張庭瑄」三字。
+
 ---
 
 ## ADR-010：首屏改 profile-card ＋ 公開聯絡管道擴充(email／IG)

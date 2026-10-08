@@ -323,3 +323,75 @@
 - **註**：使用者原始 `QQ.svg` 仍在 repo root(未追蹤);已納入 icon.svg,root 那份可留可刪
 - **Commit**：（本 step commit,本地;未推送 — 待使用者說 push)
 - **偏離**：無
+
+---
+
+## Step 24 — 首屏自介改稿＋nav 文字桌機固定顯示＋移除兩個副標（2026-10-09）
+
+- **State**：S9(published)內追加微調（使用者要求）
+- **做了什麼**：
+  - `profile.ts`:`intro` 三段換成使用者提供的新稿(活動類型改「百貨彩妝、車展、專業展」、拿掉「人流引導」「並調整溝通方式」「且清楚」、「具備良好」→「擁有良好」);僅修一處語法:第二段「自然**的**向顧客」→「自然**地**向顧客」;順手移除 brands 註解中已失效的「導言的場次數見 BrandWall」
+  - `Nav.tsx`:三個連結文字由 hover/focus 滑出改為**桌機(md 以上)固定顯示**(`hidden md:inline md:ml-2`),移除 `group` 與展開動畫 class;手機寬度放不下三組文字,維持純 icon(`aria-label` 保留)
+  - `BrandWall.tsx`／`Experience.tsx`:`SectionTitle` 拿掉 `sub`(「參與 30+ 美妝、車展、科技品牌活動推廣經驗」「展場、快閃、遊戲、路跑與典禮等活動推廣」);「精選活動」的操作提示副標未動
+- **驗證**：`npx tsc --noEmit` exit 0;dev server http://localhost:3000/hsuan-resume/ HTTP 200,HTML 內新自介三段皆在、兩個副標 0 筆、nav 文字 span 帶 `md:inline`。**未做瀏覽器視覺驗證**(交由使用者看本機畫面);未跑 `npm run build`
+- **已知**：`npm run lint` 有 1 筆既有錯誤 `ThemeToggle.tsx:10` `react-hooks/set-state-in-effect`,非本 step 造成,未處理
+- **待確認(已於報告標明)**：自介第一段「等多元派樣活動經驗」語意偏窄(車展、專業展讀起來也成了派樣),建議「具備百貨彩妝、車展、專業展及派樣等多元活動經驗」;目前照使用者原稿
+- **Commit**：（本 step commit,本地;未推送 — 待使用者說 push）
+- **偏離**：使用者提到的「圖一」未隨訊息附上,nav 改動依文字描述與現有程式判讀
+
+---
+
+## Step 25 — nav 桌機版拿掉 icon，改純文字（2026-10-09）
+
+- **State**：S9(published)內追加微調（使用者看過 step 24 畫面後要求）
+- **做了什麼**：`Nav.tsx` 三個連結的 icon 加 `md:hidden`、文字 span 拿掉 `md:ml-2` —— 桌機(md 以上)只顯示文字,手機維持純 icon;日夜切換按鈕未動
+- **驗證**：`npx tsc --noEmit` exit 0;dev server HTML 中 nav 3 個 icon 皆帶 `md:hidden`、3 個文字 span 皆 `hidden md:inline`。未做瀏覽器視覺驗證(使用者看本機畫面)
+- **Commit**：（本 step commit,本地;未推送 — 待使用者說 push）
+- **偏離**：無
+
+---
+
+## Step 26 — 首屏姓名 h1 改用 Noto Sans TC（2026-10-09）
+
+- **State**：S9(published)內追加微調（使用者指定字型）
+- **做了什麼**：
+  - `layout.tsx`:新增 `Noto_Sans_TC`(可變字重、`subsets: ["latin"]`、`display: "swap"`、變數 `--font-sans-tc`),掛到 `<html>` className
+  - `globals.css`:`@theme inline` 新增 `--font-display`(Noto Sans TC → 微軟正黑體／蘋方 → 系統 sans);**`--font-sans` 未動,仍指向襯線堆疊**
+  - `Hero.tsx`:h1 `font-serif` → `font-display`;字級、字重(中文 900、Hsuan 500)、斜體、字距皆未動
+  - `DECISIONS.md`:ADR-009 追記此例外(原 ADR 寫「整支 Noto Sans TC 移除」,避免日後被當成錯誤改回)
+- **驗證**：`npx tsc --noEmit` exit 0;dev server HTTP 200,h1 class 含 `font-display`,CSS 有 `.font-display` 規則與 Noto Sans TC `@font-face`(`font-weight: 100 900` 可變)。未做瀏覽器視覺驗證(使用者看本機畫面);未跑 `npm run build`
+- **待確認(已於報告標明)**：Noto Sans TC 無真斜體,「Hsuan」斜體為瀏覽器合成;字重是否沿用 900
+- **Commit**：（本 step commit,本地;未推送 — 待使用者說 push）
+- **偏離**：無
+
+---
+
+## Step 27 — 首屏姓名改用霞鶩文楷 Bold＋Hsuan 取消斜體（2026-10-09）
+
+- **State**：S9(published)內追加微調（使用者否決 step 26 的思源黑體,請代為選字,並要求不要斜體）
+- **做了什麼**：
+  - 選字:以無頭 Chrome 實排 12 組候選(思源宋 900/500、思源黑 900/500/300、霞鶩文楷 700/400、仙人掌明體、昭源環方 400/600、朱古力黑體、昭源宋體),三字「張庭瑄」皆確認有字;再排文楷 4 種中英搭配 × 深淺主題,選定「文楷 700 ＋ Noto Serif 英文 500 正體」
+  - `layout.tsx`:`Noto_Sans_TC` 換成 `LXGW_WenKai_TC`(僅 700、`preload: false`、`--font-kai-tc`)
+  - `globals.css`:`--font-display` 改為 Noto Serif(拉丁)→ 文楷(中文)→ 思源宋(退回)
+  - `Hero.tsx`:h1 `font-black` → `font-bold`(文楷最粗 700);英文名 span 移除 `italic`
+  - `DECISIONS.md`:ADR-009 追記改寫為文楷版本(含選字經過)
+- **驗證**：`npx tsc --noEmit` exit 0;無頭 Chrome 截圖實站——桌機 1280(深色):姓名為文楷、Hsuan 正體襯線、nav 純文字;手機 390(iframe 真實寬度):nav 純 icon、姓名一行不溢出。日間主題僅在比較稿確認,未在實站截圖;未跑 `npm run build`
+- **Commit**：（本 step commit,本地;未推送 — 待使用者說 push）
+- **偏離**：無
+
+---
+
+## Step 28 — 內容整理、首屏組圖與影片按鈕、姓名字型定案（2026-10-09）
+
+- **State**：S9(published)內追加微調（使用者逐項指示；本批與 step 24–27 合併為單一 commit 發布）
+- **做了什麼**：
+  - **精選活動**：移除 4 張(`beauty-mac`、`event-oldcar`、`sampling-doritos`、`retail-711bread`,資料與圖檔一併刪除);新增 3 張新工作(`expo-yihuagong`「加盟展×移花宮 SG」、`expo-semicon`「國際半導體展 SG」、`beauty-harpazo`「HARPAZO 香水 PG」,原圖移入 `originals/photos/`、壓成 800×1200 WebP 無 EXIF);`expo-jtar` 自照片牆移出(已併入首屏組圖,圖檔依使用者指示保留);排序改 **SG 在前、PG 在後**,新工作放各組最前。現為 35 張(SG 19／PG 16)
+  - **照片說明**：由使用者改寫為「活動×品牌 SG/PG」格式,活動名稱去掉「台灣」前綴;文字一律照使用者原文,修改建議以討論方式提出
+  - **活動經歷**：同場活動改用與照片說明一致的寫法(改 17 筆);排序 SG(18)→ PG(11)→ 未標(8,使用者決定不標、放最後);加入三場新工作。共 37 筆
+  - **首屏**：形象照換成四場活動組圖 `hero-collage.webp`(823×1200),移除照片上的活動標籤,舊 `hero.webp` 刪除;自介改為第三版文案(「自然的」依使用者決定用「的」);自介下方新增「▶ 自我介紹影片」膠囊按鈕(`profile.introVideoUrl`,YouTube Shorts,新分頁開啟,不內嵌、不併入聯絡列)
+  - **姓名字型定案**：霞鶩文楷 → **Shippori Mincho SemiBold 600**(使用者要「高級典雅、類似蘭陽明體」;蘭陽明體為付費字型未採用)。詳見 ADR-009 追記
+- **驗證**：`npx tsc --noEmit` exit 0;`npm run build` exit 0(靜態匯出含 4 個新圖檔、已刪圖檔不在 `out/`);隱私檢查——`out/` 無 jpg／pdf、`index.html` 無手機號碼樣式、姓名無「瑋」;CDP 截圖日間／深色桌機 1280 與手機 390:h1 實際字型為 Shippori Mincho ×3 字＋Noto Serif ×5 字母,影片按鈕與組圖排版正常;YouTube oEmbed 確認影片公開有效
+- **已知**：`npm run lint` 有 1 筆既有錯誤 `ThemeToggle.tsx:10` `react-hooks/set-state-in-effect`(非本批造成;部署流程只跑 build);`public/photos/expo-jtar.webp` 已無引用但保留;OG 分享圖仍是舊版(含舊首屏照與「HSUAN」字樣)
+- **環境註記**：改 `globals.css` 的 `@theme` 後 dev server 樣式未更新且重啟無效,需刪除 `.next` 再啟動
+- **Commit**：本批(step 24–28)壓成單一 commit,經 PR 合併至 main
+- **偏離**：無
