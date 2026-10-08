@@ -14,21 +14,22 @@ last_update: "2026-10-09"
 conversation:
   date: "2026-10-09"
   thread_n: 1
-  messages_estimate: 30
+  messages_estimate: 36
   health_verdict: "Healthy"
   note: "S9 內追加微調；step 24–28 同一對話完成"
 current_step:
-  n: 28
-  title: "內容整理、首屏組圖與影片按鈕、姓名字型定案（完成；step 24–28 壓成單一 commit 經 PR 發布）"
+  n: 29
+  title: "合作品牌移除兩筆＋新增 Mortlach 慕赫威士忌活動（完成，已加到 PR #1 分支）"
   location: "same conversation"
   started_at: "2026-10-09"
 last_step:
-  n: 27
-  title: "首屏姓名改用霞鶩文楷 Bold＋Hsuan 取消斜體（已被 step 28 的 Shippori Mincho 取代）"
+  n: 28
+  title: "內容整理、首屏組圖與影片按鈕、姓名字型定案（step 24–28 單一 commit）"
+  commit: "60c97f7"
   completed_at: "2026-10-09"
 next_step:
-  n: 29
-  title: "等使用者選擇：繼續微調／補內容／收尾（S9 不可自動選）"
+  n: 30
+  title: "等使用者合併 PR #1（合併後才上線）；之後選擇繼續微調／補內容／收尾（S9 不可自動選）"
   location: "same conversation"
 published:
   live_url: "https://joohnny3.github.io/hsuan-resume/"
@@ -44,7 +45,7 @@ blockers: []
 - **Phase**: Phase 1 — Editorial 改版
 - **Module**: M1-editorial-redesign — **已完成並發布上線 🚀**
 - **Live**: https://joohnny3.github.io/hsuan-resume/ （repo: joohnny3/hsuan-resume, public）
-- **Branch**: main（step 24–28 壓成單一 commit，經 PR 合併後上線）
+- **Branch**: `content/2026-10-update`（PR #1 開啟中；合併進 main 後才上線，線上目前仍為 step 23 的版本）
 - **Last update**: 2026-10-09
 
 ## 當前 Step
@@ -55,10 +56,14 @@ blockers: []
   - **合作品牌／活動經歷**：移除兩區副標；活動經歷寫法對齊照片說明（活動×品牌 SG/PG），排序 SG → PG → 未標；加入三場新工作。共 37 筆。
   - **精選活動**：刪 4 張、加 3 張新工作；說明文字去掉「台灣」前綴；排序 SG 在前、PG 在後。共 35 張。
   - 細節見 `specs/M1-editorial-redesign/STEP_LOG.md` step 24–28 與 `DECISIONS.md` ADR-009 追記。
+  - 上述已推到分支 `content/2026-10-update`，PR #1 開啟中（使用者選擇先不合併，線上仍為舊版）。
+- **#29**（完成，已加到 PR #1 分支）：
+  - 合作品牌移除「多力多滋」「BingX」兩筆（26 → 24）。活動經歷中提到這兩個品牌的條目未動。
+  - 新增一場活動「Mortlach 慕赫威士忌 SG」：原圖移入 `originals/photos/`（gitignored），壓成 `public/photos/event-mortlach.webp`（878×1200，無 EXIF）；精選活動與活動經歷各加一筆，依使用者指示皆放 **SG 區最後（第一筆 PG 之前）**。現為精選活動 36 張（SG 20／PG 16）、活動經歷 38 筆（SG 19／PG 11／未標 8）。合作品牌未加入 Mortlach。
 
 ## 下一個 Step
 
-- **#29**：等使用者選擇（S9 不可自動選）。可選項：
+- **#30**：等使用者合併 PR #1（https://github.com/joohnny3/hsuan-resume/pull/1）；合併後確認線上部署。其餘可選項（S9 不可自動選）：
   - **A. 繼續視覺／文案微調**（本機預覽 http://localhost:3000/hsuan-resume/）
   - **B. 補內容**（新經歷、新照片）
   - **C. 清掉既有待辦**：重生成 OG 分享圖（仍是舊首屏照與「HSUAN」字樣）；修 `ThemeToggle.tsx` 的 lint 錯誤；決定 `public/photos/expo-jtar.webp`（已無引用）是否刪除；workflow actions 升版。

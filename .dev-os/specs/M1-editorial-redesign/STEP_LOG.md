@@ -395,3 +395,16 @@
 - **環境註記**：改 `globals.css` 的 `@theme` 後 dev server 樣式未更新且重啟無效,需刪除 `.next` 再啟動
 - **Commit**：本批(step 24–28)壓成單一 commit,經 PR 合併至 main
 - **偏離**：無
+
+---
+
+## Step 29 — 合作品牌移除兩筆＋新增 Mortlach 慕赫威士忌活動（2026-10-09）
+
+- **State**：S9 內追加微調（使用者指示;加到 PR #1 的分支,尚未合併上線）
+- **做了什麼**：
+  - `profile.ts` `brands`:移除「多力多滋」「BingX」(26 → 24);活動經歷中提到這兩個品牌的條目未動
+  - 新增活動「Mortlach 慕赫威士忌 SG」:原圖移入 `originals/photos/`,壓成 `public/photos/event-mortlach.webp`(878×1200,無 EXIF);精選活動與活動經歷各加一筆,依使用者指示放 **SG 區最後(第一筆 PG 之前)**;說明文字照使用者檔名原文
+  - 現況:合作品牌 24、精選活動 36 張(SG 20／PG 16)、活動經歷 38 筆(SG 19／PG 11／未標 8)
+- **驗證**：`npx tsc --noEmit` exit 0;`npm run build` exit 0;dev server 頁面確認品牌區無該兩筆、Mortlach 在兩個清單的位置正確(下一筆皆為「HARPAZO 香水 PG」);截圖確認新照片顯示正常
+- **Commit**：本 step commit,推到 `content/2026-10-update`(PR #1)
+- **偏離**：無
