@@ -13,9 +13,9 @@ export const profile = {
   eyebrow: "展場模特兒・品牌推廣",
   /** 首屏自我介紹(ADR-005:獨立自介區已整合進首屏) */
   intro: [
-    "您好，我是瑄瑄，具備百貨彩妝、車展、科技展、酒展等多元活動經驗。",
-    "熟悉產品介紹、品牌推廣、顧客互動、人流引導與現場活動支援，能依照不同品牌定位與活動情境，快速掌握產品特色並調整溝通方式，自然且清楚地向顧客傳達品牌價值。",
-    "個性活潑親切，具備良好的時間觀念與責任感；面對高人流、長時間站立及戶外活動，也能維持穩定狀態與專業形象。",
+    "您好，我是瑄瑄，具備各式專業展、百貨彩妝、車展等多元派樣活動經驗。",
+    "熟悉產品介紹、品牌推廣、顧客互動與現場活動支援，能依照不同品牌定位與活動情境，快速掌握產品特色，自然的向顧客傳達品牌價值。",
+    "個性活潑親切，擁有良好的時間觀念與責任感；面對高人流、長時間站立及戶外活動，也能維持穩定狀態與專業形象。",
   ],
   traits: ["活潑開朗", "親切愛笑", "守時負責", "不怕曬太陽"],
   stats: [
@@ -29,10 +29,12 @@ export const profile = {
   lineUrl: "https://line.me/ti/p/~1012251",
   /** IG 帳號(不含 @),留空就不顯示。 */
   instagram: "__h_s_u_a_n__",
+  /** 自我介紹影片(YouTube Shorts;不帶 ?si= 分享追蹤碼),留空就不顯示按鈕。 */
+  introVideoUrl: "https://www.youtube.com/shorts/1V81L4yEwTI",
 } as const;
 
 /**
- * 品牌字牆(ADR-005):合作過的品牌與活動主辦,無日期。導言的場次數見 BrandWall。
+ * 品牌字牆(ADR-005):合作過的品牌與活動主辦,無日期。
  * url = 台灣官方網站／官方品牌頁／官方社群(來源:taiwan-brand-official-links.md)。
  * 點擊於新分頁開啟。金剛咖啡無官網,以官方 FB 為主要管道。
  */
@@ -48,12 +50,10 @@ export const brands: { name: string; url: string }[] = [
   { name: "臺灣鐵路", url: "https://www.railway.gov.tw/" },
   { name: "捷元 GENUINE", url: "https://www.genuine.com.tw/" },
   { name: "宏佳騰 Ai-2", url: "https://www.aeontek-motor.com.tw/pages/ai2-gather" },
-  { name: "BingX", url: "https://bingx.com/zh-tc" },
   { name: "浪 LIVE", url: "https://www.lang.live/" },
   { name: "富邦勇士", url: "https://www.fubonbraves.com/" },
   { name: "GQ TAIWAN", url: "https://www.gq.com.tw/" },
   { name: "Lay's 樂事", url: "https://www.lays.com.tw/" },
-  { name: "多力多滋", url: "https://www.doritos.com.tw/" },
   { name: "黑松", url: "https://www.heysong.com.tw/" },
   { name: "易口舒", url: "https://www.eclipse.com.tw/" },
   { name: "7-ELEVEN", url: "https://www.7-11.com.tw/" },
@@ -67,43 +67,49 @@ export const brands: { name: string; url: string }[] = [
 
 /**
  * 活動經歷(ADR-005):展場、快閃、遊戲、路跑與典禮等活動推廣。
- * 依時間新→舊排列,但不顯示日期(使用者要求移除)。新增經歷加一行字串即可。
+ * 排序:SG 在前、PG 在後(與精選活動一致),組內依時間新→舊;不顯示日期(使用者要求移除)。
+ * 同一場活動的寫法與照片說明一致(「活動×品牌 SG/PG」)。新增經歷加一行字串即可。
  */
 export const experiences: string[] = [
-  "捷元研討會 SG",
+  "加盟展×移花宮 SG",
+  "國際半導體展 SG",
+  "捷元 AI 研討會 SG",
   "苗栗佳餚音樂祭 SG",
+  "國際智慧能源展×捷星科技 SG",
+  "長榮航太交機儀式 SG",
+  "漫畫博覽會×新北市政府－無名之詩 SG",
+  "加盟展×慶三號 SG",
+  "新北戰酒黑金龍冬季巡迴車 SG",
+  "ULTRA TAIWAN 音樂祭 SG",
+  "浪LIVE×富邦勇士籃球 SG",
+  "加盟展×鴿子茶飲 SG",
+  "金剛咖啡開幕活動 SG",
+  "原委會原味餐車×LIMA 電商平台活動 SG",
+  "太空港音樂節×BingX 平台推廣 SG",
+  "三峽經典 90 老車×浪LIVE SG",
+  "宏佳騰智慧電車 SG",
+  "電競嘉年華×ROG SG",
+  "Mortlach 慕赫威士忌 SG",
+  "HARPAZO 香水 PG",
+  "劍與遠征遊戲推廣 PG",
+  "中職明星賽×中華電信 PG",
+  "夏季旅展×愛玩苗栗 PG",
+  "籃球瓊斯盃遊戲 PG",
+  "奇動能量飲派樣 PG",
+  "Lay's 西門樂事餅乾派樣 PG",
+  "全家展×易口舒 PG",
+  "球鞋市集×UNO PG",
+  "GQ 城市野營×樂事多力多滋派樣 PG",
+  "500%×7-11 永續快閃 PG",
+  // 以下未標 SG/PG(使用者決定不標),排在最後
   "保護貼推廣",
   "ITF 旅展",
-  "能源展（捷星科技）",
-  "長榮航太交機儀式 SG",
   "Bose 體驗會（大佳河濱）",
   "昊緣遊戲（黑松沙士）",
-  "劍與遠征遊戲推廣 PG",
   "Fin 路跑",
-  "漫博展（新北市政府－無名之詩）",
-  "中職明星賽（台北大巨蛋 中華電信）",
-  "夏季旅展（愛玩苗栗）",
-  "夏季加盟展（慶三號）",
   "台中加盟展（Xpower）",
   "新莊體育館（曼陀珠）",
-  "新北戰酒黑金龍冬季巡迴車 SG",
-  "籃球瓊斯盃遊戲 PG",
-  "奇動能量飲派發 SG",
-  "ULTRA TAIWAN 音樂祭 SG",
-  "浪 LIVE 富邦勇士籃球 SG",
-  "鴿子茶飲加盟展 SG",
-  "Lay's 西門樂事餅乾派樣 PG",
   "台北春酒宴會接待",
-  "五股工商展覽館易口舒 PG",
-  "茶飲開幕活動 SG（金剛咖啡茶飲）",
-  "原委會原味餐車 × LIMA 電商平台活動 SG",
-  "球鞋市集 UNO PG",
-  "太空港音樂節 BingX 平台推廣 SG",
-  "三峽經典 90 老車浪 LIVE SG",
-  "宏佳騰智慧電車 SG",
-  "GQ 城市野營 樂事多力多滋派樣 PG",
-  "500%×7-11 永續快閃店 PG",
-  "ROG GAMEFORCE 電競嘉年華 SG",
 ];
 
 export const galleryCategories = [
@@ -124,51 +130,48 @@ export type Photo = {
   category: Exclude<GalleryCategory, "all">;
 };
 
-/** 首屏形象照(不重複出現在照片牆)。 */
-export const heroPhoto: Photo = {
-  file: "hero.webp",
-  w: 1045,
-  h: 1567,
-  caption: "太陽能光電展 SG",
-  category: "exhibition",
+/** 首屏形象照:四場活動的組圖(不重複出現在照片牆),因此不掛單一活動標籤。 */
+export const heroPhoto: Pick<Photo, "file" | "w" | "h"> = {
+  file: "hero-collage.webp",
+  w: 823,
+  h: 1200,
 };
 
 export const photos: Photo[] = [
-  { file: "expo-solar.webp", w: 794, h: 1200, caption: "太陽能光電展 SG", category: "exhibition" },
-  { file: "seminar-ai.webp", w: 900, h: 1200, caption: "捷元 AI 研討會接待", category: "ceremony" },
+  { file: "expo-yihuagong.webp", w: 800, h: 1200, caption: "加盟展×移花宮 SG", category: "exhibition" },
+  { file: "expo-semicon.webp", w: 800, h: 1200, caption: "國際半導體展 SG", category: "exhibition" },
+  { file: "expo-solar.webp", w: 794, h: 1200, caption: "國際智慧能源展 SG", category: "exhibition" },
+  { file: "seminar-ai.webp", w: 900, h: 1200, caption: "捷元 AI 研討會 SG", category: "ceremony" },
   { file: "expo-car.webp", w: 900, h: 1200, caption: "車展活動 SG", category: "exhibition" },
-  { file: "expo-anime.webp", w: 800, h: 1200, caption: "動漫 IP 聯名活動 SG", category: "exhibition" },
-  { file: "expo-beverage.webp", w: 900, h: 1200, caption: "飲品展銷活動 PG", category: "exhibition" },
-  { file: "event-heysong.webp", w: 900, h: 1200, caption: "黑松品牌活動 PG", category: "retail" },
+  { file: "expo-anime.webp", w: 800, h: 1200, caption: "漫畫博覽會 SG", category: "exhibition" },
   { file: "expo-audio.webp", w: 800, h: 1200, caption: "音響品牌活動 SG", category: "exhibition" },
-  { file: "ceremony-aero.webp", w: 675, h: 1200, caption: "航太設備交機儀式接待", category: "ceremony" },
-  { file: "expo-sake.webp", w: 800, h: 1200, caption: "日本酒展 PG", category: "exhibition" },
-  { file: "expo-fire.webp", w: 800, h: 1200, caption: "消防設備展 SG", category: "exhibition" },
-  { file: "expo-jtar.webp", w: 800, h: 1200, caption: "科技展 SG", category: "exhibition" },
-  { file: "expo-water.webp", w: 900, h: 1200, caption: "環保水處理展 SG", category: "exhibition" },
-  { file: "event-sampling.webp", w: 900, h: 1200, caption: "品牌快閃派樣 PG", category: "retail" },
-  { file: "event-liquor.webp", w: 960, h: 1200, caption: "酒類品牌禮賓", category: "ceremony" },
-  { file: "event-cheer.webp", w: 798, h: 1200, caption: "運動賽事應援活動", category: "exhibition" },
-  { file: "event-festival.webp", w: 799, h: 1200, caption: "節慶主題活動 PG", category: "exhibition" },
-  { file: "expo-langlive.webp", w: 798, h: 1200, caption: "浪LIVE APP 推廣 PG", category: "exhibition" },
-  { file: "expo-franchise.webp", w: 900, h: 1200, caption: "加盟展 SG", category: "exhibition" },
+  { file: "ceremony-aero.webp", w: 675, h: 1200, caption: "航太設備交機儀式 SG", category: "ceremony" },
+  { file: "expo-fire.webp", w: 800, h: 1200, caption: "國際半導體展 SG", category: "exhibition" },
+  { file: "expo-water.webp", w: 900, h: 1200, caption: "國際半導體展 SG", category: "exhibition" },
+  { file: "event-liquor.webp", w: 960, h: 1200, caption: "加盟展×慶三號 SG", category: "ceremony" },
+  { file: "expo-franchise.webp", w: 900, h: 1200, caption: "加盟展×鴿子茶飲 SG", category: "exhibition" },
   { file: "expo-aeonmoto.webp", w: 900, h: 1200, caption: "宏佳騰智慧電車 SG", category: "exhibition" },
-  { file: "expo-sneaker.webp", w: 900, h: 1200, caption: "球鞋市集 UNO PG", category: "exhibition" },
-  { file: "expo-rog.webp", w: 419, h: 627, caption: "ROG 電競嘉年華 SG", category: "exhibition" },
+  { file: "expo-rog.webp", w: 419, h: 627, caption: "電競嘉年華×ROG SG", category: "exhibition" },
   { file: "event-fubon.webp", w: 444, h: 592, caption: "浪LIVE×富邦勇士籃球 SG", category: "exhibition" },
-  { file: "cht-mod.webp", w: 444, h: 592, caption: "中華電信 MOD 推廣 PG", category: "exhibition" },
   { file: "event-spaceport.webp", w: 444, h: 592, caption: "太空港音樂節 SG", category: "exhibition" },
-  { file: "event-oldcar.webp", w: 444, h: 592, caption: "三峽經典老車×浪LIVE SG", category: "exhibition" },
+  { file: "event-kingkong.webp", w: 419, h: 628, caption: "金剛咖啡開幕活動 SG", category: "retail" },
+  { file: "ceremony-award.webp", w: 444, h: 592, caption: "IoT 創意應用大賽頒獎典禮 SG", category: "ceremony" },
+  { file: "ceremony-tra.webp", w: 441, h: 595, caption: "新式發表會 SG", category: "ceremony" },
+  { file: "event-mortlach.webp", w: 878, h: 1200, caption: "Mortlach 慕赫威士忌 SG", category: "ceremony" },
+  { file: "beauty-harpazo.webp", w: 800, h: 1200, caption: "HARPAZO 香水 PG", category: "beauty" },
+  { file: "expo-beverage.webp", w: 900, h: 1200, caption: "商品展×冰結 PG", category: "exhibition" },
+  { file: "event-heysong.webp", w: 900, h: 1200, caption: "黑松品牌活動 PG", category: "retail" },
+  { file: "expo-sake.webp", w: 800, h: 1200, caption: "台北國際酒展 PG", category: "exhibition" },
+  { file: "event-sampling.webp", w: 900, h: 1200, caption: "奇動能量飲派樣 PG", category: "retail" },
+  { file: "event-cheer.webp", w: 798, h: 1200, caption: "中職明星賽×中華電信 PG", category: "exhibition" },
+  { file: "event-festival.webp", w: 799, h: 1200, caption: "夏季旅展×愛玩苗栗 PG", category: "exhibition" },
+  { file: "expo-langlive.webp", w: 798, h: 1200, caption: "浪LIVE APP 推廣 PG", category: "exhibition" },
+  { file: "expo-sneaker.webp", w: 900, h: 1200, caption: "球鞋市集×UNO PG", category: "exhibition" },
+  { file: "cht-mod.webp", w: 444, h: 592, caption: "中華電信 MOD 推廣 PG", category: "exhibition" },
   { file: "beauty-lancome.webp", w: 444, h: 592, caption: "LANCÔME 蘭蔻 PG", category: "beauty" },
-  { file: "beauty-mac.webp", w: 444, h: 592, caption: "M·A·C 彩妝 PG", category: "beauty" },
   { file: "beauty-drunkele.webp", w: 444, h: 592, caption: "DRUNK ELEPHANT 新櫃開幕 PG", category: "beauty" },
   { file: "beauty-zuixiang.webp", w: 444, h: 592, caption: "醉象保養品 PG", category: "beauty" },
   { file: "popup-711.webp", w: 444, h: 592, caption: "500%×7-11 永續快閃 PG", category: "retail" },
-  { file: "event-gq-lays.webp", w: 444, h: 592, caption: "GQ 城市野營 Lay's PG", category: "retail" },
-  { file: "retail-eclipse.webp", w: 444, h: 592, caption: "全家展易口舒 PG", category: "retail" },
-  { file: "sampling-doritos.webp", w: 444, h: 592, caption: "多力多滋派樣 PG", category: "retail" },
-  { file: "event-kingkong.webp", w: 419, h: 628, caption: "金剛咖啡開幕活動 SG", category: "retail" },
-  { file: "retail-711bread.webp", w: 444, h: 592, caption: "7-11 麵包推廣 PG", category: "retail" },
-  { file: "ceremony-award.webp", w: 444, h: 592, caption: "IoT 創意應用大賽頒獎典禮 SG", category: "ceremony" },
-  { file: "ceremony-tra.webp", w: 441, h: 595, caption: "臺灣鐵路新式售票機發表 SG", category: "ceremony" },
+  { file: "event-gq-lays.webp", w: 444, h: 592, caption: "GQ 城市野營×Lay's PG", category: "retail" },
+  { file: "retail-eclipse.webp", w: 444, h: 592, caption: "全家展×易口舒 PG", category: "retail" },
 ];

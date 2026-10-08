@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Serif, Noto_Serif_TC } from "next/font/google";
+import { Noto_Serif, Noto_Serif_TC, Shippori_Mincho } from "next/font/google";
 
 import { profile } from "@/data/profile";
 import { SITE_ORIGIN, SITE_URL } from "@/lib/site";
@@ -20,6 +20,16 @@ const serifTC = Noto_Serif_TC({
   variable: "--font-serif-tc",
   weight: ["400", "600", "700", "900"],
   subsets: ["latin"],
+  display: "swap",
+});
+
+// 首屏姓名專用:Shippori Mincho(築地體系的古典明體,ADR-009 例外)。日系字型,
+// 已用 cmap 確認含「張庭瑄」三字。只取中文字,英文由 Noto Serif 負責,
+// 故不 preload 用不到的 latin 子集;中文切片仍依 unicode-range 按需載入
+const minchoName = Shippori_Mincho({
+  variable: "--font-mincho-name",
+  weight: "600",
+  preload: false,
   display: "swap",
 });
 
@@ -59,7 +69,7 @@ export default function RootLayout({
       lang="zh-Hant-TW"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${serifLatin.variable} ${serifTC.variable} h-full antialiased`}
+      className={`${serifLatin.variable} ${serifTC.variable} ${minchoName.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />

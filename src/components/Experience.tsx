@@ -5,11 +5,8 @@ export default function Experience() {
   return (
     <section id="experience" className="scroll-mt-20 border-t border-hairline">
       <div className="mx-auto max-w-6xl px-5 py-20">
-        <SectionTitle
-          title="活動經歷"
-          sub="展場、快閃、遊戲、路跑與典禮等活動推廣"
-        />
-        {/* 桌機雙欄:依時間新→舊往下讀(column-first);每項不跨欄斷開 */}
+        <SectionTitle title="活動經歷" />
+        {/* 桌機雙欄:先左欄由上往下、再右欄(column-first);每項不跨欄斷開 */}
         <ul className="columns-1 gap-x-12 sm:columns-2">
           {experiences.map((item) => (
             <li

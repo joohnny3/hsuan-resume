@@ -49,6 +49,15 @@ function MeasureIcon({ className }: IconProps) {
 
 const statIcons = [HeightIcon, WeightIcon, MeasureIcon];
 
+/** 自我介紹影片:播放鍵(實心,與線條 icon 區隔出「可播放」) */
+function PlayIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-11-6.86A1 1 0 0 0 8 5.14z" />
+    </svg>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-canvas-deep">
@@ -61,9 +70,9 @@ export default function Hero() {
           </p>
 
           {/* 姓名 + 英文名 */}
-          <h1 className="mt-4 font-serif text-5xl font-black leading-none tracking-wide md:text-6xl">
+          <h1 className="mt-4 font-display text-5xl font-semibold leading-none tracking-wider md:text-6xl">
             {profile.fullName}
-            <span className="ml-3 align-baseline text-2xl font-medium italic tracking-widest text-muted md:text-3xl">
+            <span className="ml-3 align-baseline text-2xl font-medium tracking-widest text-muted md:text-3xl">
               {profile.englishName}
             </span>
           </h1>
@@ -74,6 +83,19 @@ export default function Hero() {
               <p key={line.slice(0, 10)}>{line}</p>
             ))}
           </div>
+
+          {/* 自我介紹影片:接在自介文字後的獨立按鈕(不併入聯絡列),新分頁開 YouTube */}
+          {profile.introVideoUrl && (
+            <a
+              href={profile.introVideoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent px-5 py-2.5 text-sm tracking-wide text-accent transition-colors hover:bg-accent hover:text-on-accent"
+            >
+              <PlayIcon className="size-4 shrink-0" />
+              自我介紹影片
+            </a>
+          )}
 
           {/* 數據列:icon 方塊 + 標籤 + 數值(橫列,無單位) */}
           <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
@@ -103,18 +125,15 @@ export default function Hero() {
 
         {/* 形象照 */}
         <div className="order-1 flex justify-center md:order-2 md:justify-end">
-          <div className="relative w-64 sm:w-72 md:w-80">
+          <div className="w-64 sm:w-72 md:w-80">
             <Image
               src={asset(`/photos/${heroPhoto.file}`)}
-              alt={`${profile.stageName} 形象照 — ${heroPhoto.caption}`}
+              alt={`${profile.stageName} 形象照`}
               width={heroPhoto.w}
               height={heroPhoto.h}
               priority
               className="rounded-3xl object-cover shadow-2xl"
             />
-            <span className="absolute bottom-4 left-4 rounded-full bg-overlay px-3.5 py-1.5 text-xs tracking-wide text-white/90 backdrop-blur-sm">
-              {heroPhoto.caption}
-            </span>
           </div>
         </div>
       </div>

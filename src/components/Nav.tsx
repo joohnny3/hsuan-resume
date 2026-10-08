@@ -103,10 +103,11 @@ export default function Nav() {
               key={href}
               href={href}
               aria-label={label}
-              className="group flex items-center rounded-full px-2 py-2 text-muted transition-colors hover:text-accent"
+              className="flex items-center rounded-full px-2 py-2 text-muted transition-colors hover:text-accent"
             >
-              <Icon className="size-5 shrink-0" />
-              <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 transition-all duration-300 group-hover:ml-2 group-hover:max-w-[6rem] group-hover:opacity-100 group-focus-visible:ml-2 group-focus-visible:max-w-[6rem] group-focus-visible:opacity-100 motion-reduce:transition-none">
+              {/* 桌機:純文字固定顯示;手機寬度放不下三組文字,改用純 icon */}
+              <Icon className="size-5 shrink-0 md:hidden" />
+              <span className="hidden whitespace-nowrap text-sm md:inline">
                 {label}
               </span>
             </a>
